@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta
   name="viewport"
-  content="width=device-width,initial-scale=1,viewport-fit=cover"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
+
 <title>Chaitanya & Mounisha</title>
 
+<meta
+  name="description"
+  content="Wedding invitation for Chaitanya & Mounisha"
+>
+
 <style>
+
+/* =========================================================
+   RESET + COLORS
+========================================================= */
 
 *{
   box-sizing:border-box;
@@ -21,9 +33,14 @@ html{
 body{
   margin:0;
   overflow-x:hidden;
-  background:#fff6e7;
+
+  background:#fff7ea;
   color:#4d4037;
-  font-family:Georgia,"Times New Roman",serif;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 }
 
 body.locked{
@@ -31,25 +48,39 @@ body.locked{
 }
 
 :root{
-  --cream:#fff7e9;
+
+  --cream:#fff7ea;
+  --cream-dark:#f4dfbd;
+
   --paper:#fffaf1;
-  --green:#3f604d;
-  --green-dark:#2f493a;
+
+  --green:#46624d;
+  --green-dark:#304638;
+
   --sage:#dce7d8;
+
   --maroon:#963d49;
-  --gold:#c89b4f;
-  --pink:#d87b87;
-  --pink-light:#f1c3bd;
-  --yellow:#efc44e;
+  --maroon-dark:#762e38;
+
+  --pink:#d97883;
+  --pink-soft:#f4c7c0;
+
+  --gold:#c79a4d;
+
+  --yellow:#e9bd45;
+
 }
 
-/* =========================================
-   ENVELOPE
-========================================= */
+
+/* =========================================================
+   OPENING SCREEN
+========================================================= */
 
 #openingScreen{
+
   position:fixed;
   inset:0;
+
   z-index:9999;
 
   display:flex;
@@ -59,115 +90,203 @@ body.locked{
   padding:20px;
 
   background:
-    radial-gradient(circle at 50% 28%,rgba(255,255,255,.8),transparent 40%),
-    linear-gradient(145deg,#f2dfc6,#fff4e5,#ead3b2);
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(255,255,255,.9),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #f2dfc6,
+      #fff4e5,
+      #ead3b2
+    );
 
   transition:
-    opacity .8s ease,
-    visibility .8s ease;
+    opacity .75s ease,
+    visibility .75s ease;
+
 }
 
 #openingScreen.hide{
+
   opacity:0;
   visibility:hidden;
+
   pointer-events:none;
+
 }
 
+
+/* =========================================================
+   CLOSED ENVELOPE
+========================================================= */
+
 .envelope-stage{
+
   position:relative;
+
   width:min(88vw,680px);
-  height:430px;
+  height:420px;
+
   perspective:1600px;
+
 }
 
 .envelope{
+
   position:absolute;
   inset:0;
 
   overflow:hidden;
 
-  border-radius:4px;
+  border-radius:5px;
 
   background:
-    linear-gradient(145deg,#d3aa60,#b78a43);
+    linear-gradient(
+      145deg,
+      #d2aa62,
+      #b9873f
+    );
 
   box-shadow:
-    0 30px 60px rgba(73,45,24,.25);
+    0 30px 65px
+    rgba(72,43,22,.27);
+
 }
+
+
+/* lower envelope folds */
 
 .envelope-front-left,
 .envelope-front-right{
+
   position:absolute;
   bottom:0;
 
-  width:60%;
-  height:67%;
+  width:61%;
+  height:68%;
 
-  z-index:4;
+  z-index:5;
 
-  background:#c69c57;
+  background:#c59a54;
+
 }
 
 .envelope-front-left{
+
   left:0;
-  clip-path:polygon(0 0,100% 100%,0 100%);
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 100%,
+      0 100%
+    );
+
 }
 
 .envelope-front-right{
+
   right:0;
-  clip-path:polygon(100% 0,100% 100%,0 100%);
+
+  clip-path:
+    polygon(
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+
 }
 
 .envelope-bottom{
+
   position:absolute;
+
   left:0;
   right:0;
   bottom:0;
 
-  height:55%;
+  height:56%;
 
-  z-index:3;
+  z-index:4;
 
   background:
-    linear-gradient(#d2a85f,#b9883f);
+    linear-gradient(
+      #d2a75e,
+      #b98840
+    );
 
-  clip-path:polygon(0 100%,50% 0,100% 100%);
+  clip-path:
+    polygon(
+      0 100%,
+      50% 0,
+      100% 100%
+    );
+
 }
 
+
+/* envelope flap */
+
 .envelope-flap{
+
   position:absolute;
+
   top:0;
   left:0;
   right:0;
 
-  height:67%;
+  height:68%;
 
   z-index:8;
 
   transform-origin:top;
 
   background:
-    linear-gradient(#d8b26a,#c09349);
+    linear-gradient(
+      #ddb76f,
+      #c3974e
+    );
 
-  clip-path:polygon(0 0,100% 0,50% 100%);
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
 
   transition:
-    transform 1.05s cubic-bezier(.2,.8,.2,1),
-    z-index .2s linear .7s;
+    transform 1s
+    cubic-bezier(.22,.78,.2,1);
+
 }
 
-.envelope-stage.open .envelope-flap{
-  transform:rotateX(180deg);
-  z-index:1;
+.envelope-stage.open
+.envelope-flap{
+
+  transform:
+    rotateX(180deg);
+
 }
+
+
+/* =========================================================
+   WAX SEAL
+========================================================= */
 
 .seal{
+
   position:absolute;
 
   left:50%;
   top:48%;
 
-  transform:translate(-50%,-50%);
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
 
   z-index:12;
 
@@ -179,748 +298,1813 @@ body.locked{
 
   cursor:pointer;
 
-  color:#f7dda8;
+  color:#f5d89d;
 
-  font-family:Georgia,serif;
-  font-size:25px;
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:24px;
   font-weight:bold;
+
   letter-spacing:2px;
 
   background:
-    radial-gradient(circle at 35% 28%,#c0676d,#913a45 58%,#682630);
+    radial-gradient(
+      circle at 33% 28%,
+      #bf6870,
+      #913a45 58%,
+      #65252e
+    );
 
   box-shadow:
     0 6px 0 #522129,
-    0 12px 26px rgba(65,31,28,.35),
-    inset 0 0 0 5px rgba(232,177,123,.38);
+    0 13px 28px
+    rgba(70,30,31,.36),
+    inset 0 0 0 5px
+    rgba(240,185,120,.35);
+
 }
 
 .seal::before{
+
   content:"";
+
   position:absolute;
+
   inset:12px;
+
   border-radius:50%;
-  border:1px solid #e6c17e;
+
+  border:
+    1px solid
+    #e8c785;
+
 }
 
-.envelope-stage.open .seal{
-  animation:sealOpen .55s forwards;
+.envelope-stage.open
+.seal{
+
+  animation:
+    sealOpen
+    .5s forwards;
+
 }
 
 @keyframes sealOpen{
+
   0%{
-    transform:translate(-50%,-50%) scale(1);
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+
     opacity:1;
+
   }
+
   50%{
-    transform:translate(-50%,-50%) scale(1.08);
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.08);
+
   }
+
   100%{
-    transform:translate(-50%,18px) scale(.55) rotate(16deg);
+
+    transform:
+      translate(
+        -50%,
+        18px
+      )
+      scale(.55)
+      rotate(16deg);
+
     opacity:0;
+
   }
+
 }
 
+
+/* tap instruction */
+
 .tap-text{
+
   position:absolute;
 
   left:0;
   right:0;
-  bottom:55px;
+
+  bottom:54px;
 
   z-index:10;
 
   text-align:center;
 
-  color:#5f4e3f;
+  color:#5e4c3e;
 
-  font:11px Arial,sans-serif;
+  font:
+    11px
+    Arial,
+    sans-serif;
 
   letter-spacing:4px;
+
+  transition:
+    opacity .3s ease;
+
 }
 
-.envelope-stage.open .tap-text{
+.envelope-stage.open
+.tap-text{
+
   opacity:0;
+
 }
 
-/* =========================================
-   DECORATIVE FLORAL ELEMENTS
-========================================= */
 
-.hanging-flower{
-  position:absolute;
-  top:0;
-  width:65px;
-  z-index:2;
-  pointer-events:none;
-}
-
-.hanging-flower.left{
-  left:10px;
-}
-
-.hanging-flower.right{
-  right:10px;
-  transform:scaleX(-1);
-}
-
-.flower-string{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:1px;
-}
-
-.flower-string span{
-  font-size:24px;
-  line-height:18px;
-}
-
-.banana-leaf{
-  position:absolute;
-  bottom:-10px;
-  font-size:110px;
-  opacity:.92;
-  z-index:1;
-}
-
-.banana-leaf.left{
-  left:-20px;
-  transform:rotate(-18deg);
-}
-
-.banana-leaf.right{
-  right:-20px;
-  transform:scaleX(-1) rotate(-18deg);
-}
-
-/* =========================================
+/* =========================================================
    NAV
-========================================= */
+========================================================= */
 
 nav{
+
   position:sticky;
   top:0;
+
   z-index:500;
 
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
-  gap:28px;
+  gap:27px;
 
-  padding:17px 14px;
+  padding:
+    16px 15px;
 
   overflow-x:auto;
+
   white-space:nowrap;
 
-  background:rgba(63,96,77,.98);
+  background:
+    rgba(
+      61,
+      89,
+      70,
+      .98
+    );
 
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,.09);
+
 }
 
 nav a{
+
   color:#fff3dc;
+
   text-decoration:none;
-  font-size:10px;
-  letter-spacing:3px;
+
+  font:
+    10px
+    Arial,
+    sans-serif;
+
+  letter-spacing:2.5px;
+
 }
 
 nav .rsvp-nav{
-  padding:9px 18px;
-  border-radius:24px;
-  background:#f5d49d;
-  color:#7b3340;
+
+  padding:
+    9px 17px;
+
+  border-radius:25px;
+
+  background:#f4d69f;
+
+  color:#7c3440;
+
   font-weight:bold;
+
 }
 
-/* =========================================
+
+/* =========================================================
+   DECORATIVE FLOWERS
+========================================================= */
+
+.flower-garland{
+
+  position:absolute;
+
+  top:0;
+
+  z-index:3;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+
+  pointer-events:none;
+
+}
+
+.flower-garland.left{
+  left:15px;
+}
+
+.flower-garland.right{
+  right:15px;
+}
+
+.flower-garland span{
+
+  margin-top:-5px;
+
+  font-size:25px;
+
+  line-height:24px;
+
+}
+
+.banana{
+
+  position:absolute;
+
+  z-index:1;
+
+  bottom:-20px;
+
+  font-size:120px;
+
+  opacity:.78;
+
+}
+
+.banana.left{
+
+  left:-30px;
+
+  transform:
+    rotate(-17deg);
+
+}
+
+.banana.right{
+
+  right:-30px;
+
+  transform:
+    scaleX(-1)
+    rotate(-17deg);
+
+}
+
+
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero{
-  min-height:92vh;
 
   position:relative;
+
+  min-height:91vh;
+
+  overflow:hidden;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  overflow:hidden;
-
-  padding:100px 20px 90px;
+  padding:
+    95px 20px;
 
   text-align:center;
 
   background:
-    radial-gradient(circle at 10% 22%,rgba(213,110,123,.17) 0 8%,transparent 9%),
-    radial-gradient(circle at 89% 25%,rgba(95,128,89,.18) 0 9%,transparent 10%),
-    linear-gradient(#fff8eb,#f3dfbf);
+
+    radial-gradient(
+      circle at 12% 22%,
+      rgba(210,99,113,.17)
+      0 8%,
+      transparent 9%
+    ),
+
+    radial-gradient(
+      circle at 88% 26%,
+      rgba(94,125,88,.18)
+      0 9%,
+      transparent 10%
+    ),
+
+    linear-gradient(
+      #fff8eb,
+      #f2dfbe
+    );
+
 }
 
 .hero-inner{
+
   position:relative;
-  z-index:3;
+
+  z-index:4;
+
   max-width:850px;
+
 }
 
 .hero-small{
-  font-size:10px;
+
+  font:
+    10px
+    Arial,
+    sans-serif;
+
   letter-spacing:5px;
+
 }
 
 .hero h1{
-  margin:14px 0 8px;
 
-  font-family:"Brush Script MT","Snell Roundhand",cursive;
+  margin:
+    15px 0 7px;
 
-  font-size:clamp(58px,10vw,105px);
+  color:var(--maroon);
+
+  font-family:
+    "Brush Script MT",
+    "Snell Roundhand",
+    cursive;
+
+  font-size:
+    clamp(
+      55px,
+      10vw,
+      105px
+    );
 
   font-weight:normal;
 
-  color:var(--maroon);
 }
 
 .hero-date{
-  margin-top:17px;
 
-  color:#6a594f;
+  margin-top:18px;
+
+  color:#68574d;
 
   font-size:14px;
 
   letter-spacing:6px;
+
 }
 
-.hero-divider{
+.divider{
+
   width:220px;
   height:1px;
 
-  margin:30px auto;
+  margin:
+    30px auto;
 
   background:
-    linear-gradient(90deg,transparent,var(--gold),transparent);
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
 }
 
-.hero-copy{
-  max-width:620px;
+.hero p{
+
+  max-width:630px;
 
   margin:auto;
 
-  font-size:14px;
+  font-size:15px;
 
   line-height:1.9;
+
 }
 
-.hero-rsvp{
+.primary-button{
+
   display:inline-block;
 
-  margin-top:30px;
+  margin-top:31px;
 
-  padding:15px 31px;
+  padding:
+    15px 31px;
 
   border-radius:30px;
 
-  background:var(--maroon);
+  background:
+    var(--maroon);
 
   color:white;
 
   text-decoration:none;
 
-  font:700 11px Arial,sans-serif;
+  font:
+    700
+    11px
+    Arial,
+    sans-serif;
 
   letter-spacing:3px;
 
-  box-shadow:0 10px 25px rgba(116,47,55,.2);
+  box-shadow:
+    0 10px 25px
+    rgba(115,45,53,.22);
+
 }
 
-/* =========================================
-   IMAGE FEATURE
-========================================= */
 
-.image-feature{
-  padding:80px 20px;
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
 
-  background:#fffaf1;
+.eyebrow{
 
-  text-align:center;
+  margin-bottom:9px;
+
+  color:#816d5c;
+
+  font:
+    10px
+    Arial,
+    sans-serif;
+
+  letter-spacing:4px;
+
 }
 
-.image-frame{
-  max-width:950px;
-  margin:35px auto 0;
+.section-title{
 
-  padding:12px;
+  margin:0;
 
-  background:#f5ddb6;
+  color:
+    var(--maroon);
 
-  border:1px solid #d7b276;
+  font-size:
+    clamp(
+      34px,
+      5vw,
+      50px
+    );
 
-  box-shadow:0 16px 40px rgba(75,50,30,.12);
+  font-weight:normal;
+
 }
 
-.image-frame img{
-  display:block;
-  width:100%;
-  height:auto;
-}
 
-/* =========================================
+/* =========================================================
    STORY
-========================================= */
+========================================================= */
 
 .story-section{
+
   position:relative;
+
   overflow:hidden;
 
-  padding:95px 20px;
+  padding:
+    100px 20px;
 
-  background:#dfe9da;
+  background:
+    var(--sage);
+
 }
 
 .story-card{
+
   position:relative;
-  z-index:2;
+  z-index:3;
 
-  max-width:860px;
-
-  margin:auto;
-
-  padding:60px clamp(25px,7vw,70px);
-
-  text-align:center;
-
-  border:1px solid rgba(124,94,64,.25);
-
-  background:rgba(255,250,241,.9);
-
-  box-shadow:0 18px 50px rgba(59,72,52,.1);
-}
-
-.story-card p{
-  max-width:700px;
-
-  margin:24px auto 0;
-
-  font-size:15px;
-
-  line-height:2;
-}
-
-/* =========================================
-   HEADINGS
-========================================= */
-
-.eyebrow{
-  margin-bottom:8px;
-
-  color:#806c5a;
-
-  font-size:10px;
-
-  letter-spacing:4px;
-}
-
-.section-heading{
-  margin:0;
-
-  color:var(--maroon);
-
-  font-size:clamp(32px,5vw,48px);
-
-  font-weight:normal;
-}
-
-/* =========================================
-   EVENTS
-========================================= */
-
-.events-section{
-  padding:95px 20px;
-
-  background:#fff7e8;
-}
-
-.events-grid{
-  max-width:1100px;
-
-  margin:45px auto 0;
-
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:24px;
-}
-
-.event-card{
-  overflow:hidden;
-
-  background:#fffdf8;
-
-  box-shadow:0 14px 35px rgba(75,50,30,.1);
-}
-
-.event-art{
-  height:230px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:80px;
-}
-
-.event-card:nth-child(1) .event-art{
-  background:linear-gradient(145deg,#d98691,#f0bbb8);
-}
-
-.event-card:nth-child(2) .event-art{
-  background:linear-gradient(145deg,#e9b73f,#f4d77d);
-}
-
-.event-card:nth-child(3) .event-art{
-  background:linear-gradient(145deg,#799575,#bacaaa);
-}
-
-.event-body{
-  padding:30px 24px;
-
-  text-align:center;
-}
-
-.event-date{
-  color:var(--gold);
-
-  font:11px Arial,sans-serif;
-
-  letter-spacing:4px;
-}
-
-.event-body h3{
-  margin:9px 0 4px;
-
-  color:var(--maroon);
-
-  font-size:28px;
-
-  font-weight:normal;
-}
-
-.telugu{
-  margin-bottom:12px;
-
-  color:#8d574e;
-
-  font-size:18px;
-}
-
-.event-body p{
-  font-size:13px;
-
-  line-height:1.75;
-}
-
-/* =========================================
-   RITUAL IMAGE + MEANINGS
-========================================= */
-
-.ritual-image-section{
-  padding:90px 20px;
-
-  background:#f0e5cb;
-
-  text-align:center;
-}
-
-.ritual-full-image{
-  max-width:950px;
-
-  margin:35px auto 0;
-
-  padding:12px;
-
-  background:#fff9ec;
-
-  border:1px solid #d4b276;
-
-  box-shadow:0 18px 45px rgba(73,49,30,.13);
-}
-
-.ritual-full-image img{
-  display:block;
-  width:100%;
-}
-
-.rituals-section{
-  padding:95px 20px;
-
-  background:#405b48;
-
-  color:#fff5df;
-}
-
-.rituals-section .eyebrow{
-  color:#e6d7b9;
-}
-
-.rituals-section .section-heading{
-  color:#f2cca0;
-}
-
-.ritual-grid{
-  max-width:1100px;
-
-  margin:45px auto 0;
-
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:20px;
-}
-
-.ritual-card{
-  padding:31px 25px;
-
-  text-align:center;
-
-  border:1px solid rgba(255,243,216,.25);
-
-  background:rgba(255,255,255,.045);
-}
-
-.ritual-card h3{
-  margin:12px 0 5px;
-
-  color:#f2cca0;
-
-  font-size:20px;
-
-  font-weight:normal;
-}
-
-.ritual-card p{
-  font-size:12px;
-
-  line-height:1.8;
-}
-
-/* =========================================
-   VENUE
-========================================= */
-
-.venue-section{
-  position:relative;
-  overflow:hidden;
-
-  padding:95px 20px;
-
-  text-align:center;
-
-  background:
-    linear-gradient(#f4e1c2,#fff8e9);
-}
-
-.venue-box{
-  position:relative;
-  z-index:2;
-
-  max-width:720px;
-
-  margin:40px auto 0;
-
-  padding:50px 25px;
-
-  border:1px solid #c8a06a;
-
-  background:rgba(255,255,255,.58);
-}
-
-/* =========================================
-   RSVP EMBED
-========================================= */
-
-.rsvp-section{
-  position:relative;
-
-  overflow:hidden;
-
-  padding:100px 20px;
-
-  background:
-    linear-gradient(145deg,#d47b84,#a3434e);
-
-  color:#fff8ea;
-
-  text-align:center;
-}
-
-.rsvp-section .eyebrow{
-  color:#f4deca;
-}
-
-.rsvp-section h2{
-  margin:10px 0 15px;
-
-  font-size:clamp(42px,7vw,64px);
-
-  font-weight:normal;
-}
-
-.rsvp-section p{
-  max-width:680px;
-
-  margin:0 auto 30px;
-
-  font-size:15px;
-
-  line-height:1.8;
-}
-
-.form-shell{
   max-width:850px;
 
   margin:auto;
 
-  padding:12px;
+  padding:
+    60px
+    clamp(
+      24px,
+      7vw,
+      70px
+    );
 
-  border-radius:18px;
+  text-align:center;
 
-  background:#fff7e6;
+  border:
+    1px solid
+    rgba(
+      119,
+      91,
+      65,
+      .23
+    );
 
-  box-shadow:0 20px 50px rgba(74,25,31,.25);
+  background:
+    rgba(
+      255,
+      250,
+      241,
+      .9
+    );
+
+  box-shadow:
+    0 18px 50px
+    rgba(56,71,51,.1);
+
 }
 
-.form-shell iframe{
+.story-card p{
+
+  margin:
+    23px auto 0;
+
+  max-width:700px;
+
+  font-size:15px;
+
+  line-height:2;
+
+}
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+.events-section{
+
+  padding:
+    95px 20px;
+
+  background:#fff8e9;
+
+}
+
+.events-header{
+
+  text-align:center;
+
+}
+
+.events-grid{
+
+  max-width:1100px;
+
+  margin:
+    45px auto 0;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:24px;
+
+}
+
+.event-card{
+
+  overflow:hidden;
+
+  background:#fffdfa;
+
+  box-shadow:
+    0 14px 35px
+    rgba(74,48,28,.1);
+
+}
+
+.event-top{
+
+  height:220px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:75px;
+
+}
+
+.event-card:nth-child(1)
+.event-top{
+
+  background:
+    linear-gradient(
+      145deg,
+      #db8791,
+      #f2c3bd
+    );
+
+}
+
+.event-card:nth-child(2)
+.event-top{
+
+  background:
+    linear-gradient(
+      145deg,
+      #e8b640,
+      #f4db78
+    );
+
+}
+
+.event-card:nth-child(3)
+.event-top{
+
+  background:
+    linear-gradient(
+      145deg,
+      #7c9774,
+      #bdccad
+    );
+
+}
+
+.event-content{
+
+  padding:
+    30px 23px;
+
+  text-align:center;
+
+}
+
+.event-date{
+
+  color:
+    var(--gold);
+
+  font:
+    11px
+    Arial,
+    sans-serif;
+
+  letter-spacing:4px;
+
+}
+
+.event-content h3{
+
+  margin:
+    9px 0 4px;
+
+  color:
+    var(--maroon);
+
+  font-size:29px;
+
+  font-weight:normal;
+
+}
+
+.telugu{
+
+  margin-bottom:12px;
+
+  color:#965d52;
+
+  font-size:18px;
+
+}
+
+.event-content p{
+
+  font-size:13px;
+
+  line-height:1.7;
+
+}
+
+
+/* =========================================================
+   RITUAL INTRO PLACEHOLDER
+   IMAGE CAN BE ADDED LATER
+========================================================= */
+
+.ritual-intro{
+
+  padding:
+    90px 20px;
+
+  text-align:center;
+
+  background:
+    #f0e3c5;
+
+}
+
+.ritual-placeholder{
+
+  max-width:950px;
+
+  margin:
+    38px auto 0;
+
+  min-height:290px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:40px;
+
+  border:
+    1px solid
+    #cfad76;
+
+  background:
+
+    repeating-linear-gradient(
+      45deg,
+      #fff9ec,
+      #fff9ec 15px,
+      #fbf1dc 15px,
+      #fbf1dc 30px
+    );
+
+  color:#927556;
+
+  font-style:italic;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================================================
+   RITUALS
+========================================================= */
+
+.rituals{
+
+  padding:
+    95px 20px;
+
+  background:
+    var(--green);
+
+  color:#fff5df;
+
+}
+
+.ritual-header{
+
+  text-align:center;
+
+}
+
+.rituals .eyebrow{
+
+  color:#e5d6b8;
+
+}
+
+.rituals .section-title{
+
+  color:#f1cca0;
+
+}
+
+.ritual-grid{
+
+  max-width:1100px;
+
+  margin:
+    46px auto 0;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:20px;
+
+}
+
+.ritual-card{
+
+  padding:
+    32px 25px;
+
+  text-align:center;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      244,
+      216,
+      .25
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .045
+    );
+
+}
+
+.ritual-icon{
+
+  font-size:34px;
+
+}
+
+.ritual-card h3{
+
+  margin:
+    11px 0 5px;
+
+  color:#f1c999;
+
+  font-size:20px;
+
+  font-weight:normal;
+
+}
+
+.ritual-card .telugu{
+
+  color:#e1c4aa;
+
+}
+
+.ritual-card p{
+
+  font-size:12px;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================================================
+   VENUE
+========================================================= */
+
+.venue{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:
+    95px 20px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      #f5e2c2,
+      #fff8e9
+    );
+
+}
+
+.venue-card{
+
+  position:relative;
+  z-index:3;
+
+  max-width:720px;
+
+  margin:
+    40px auto 0;
+
+  padding:
+    52px 25px;
+
+  border:
+    1px solid
+    #c8a16b;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .6
+    );
+
+}
+
+.venue-card h3{
+
+  margin:
+    8px 0;
+
+  color:
+    var(--maroon);
+
+  font-size:35px;
+
+  font-weight:normal;
+
+}
+
+.venue-card p{
+
+  font-size:14px;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-section{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:
+    105px 20px;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255,226,187,.14)
+      0 15%,
+      transparent 16%
+    ),
+
+    linear-gradient(
+      145deg,
+      #d47b84,
+      #963d49
+    );
+
+}
+
+.rsvp-decoration{
+
+  position:absolute;
+
+  font-size:210px;
+
+  opacity:.08;
+
+  pointer-events:none;
+
+}
+
+.rsvp-decoration.one{
+
+  left:-30px;
+  bottom:-50px;
+
+}
+
+.rsvp-decoration.two{
+
+  right:-30px;
+  top:-40px;
+
+}
+
+.rsvp-card{
+
+  position:relative;
+
+  z-index:4;
+
+  max-width:780px;
+
+  margin:auto;
+
+  padding:
+    55px 48px;
+
+  border-radius:20px;
+
+  background:
+    var(--paper);
+
+  box-shadow:
+    0 25px 65px
+    rgba(77,26,31,.28);
+
+}
+
+.rsvp-heading{
+
+  margin-bottom:40px;
+
+  text-align:center;
+
+}
+
+.rsvp-heading h2{
+
+  margin:
+    7px 0 10px;
+
+  color:
+    var(--maroon);
+
+  font-size:
+    clamp(
+      43px,
+      7vw,
+      62px
+    );
+
+  font-weight:normal;
+
+}
+
+.rsvp-heading p{
+
+  margin:auto;
+
+  max-width:560px;
+
+  color:#765d50;
+
+  font-size:14px;
+
+  line-height:1.8;
+
+}
+
+
+/* form fields */
+
+.form-row{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:17px;
+
+}
+
+.form-group{
+
+  margin-bottom:25px;
+
+}
+
+.form-label{
+
   display:block;
+
+  margin-bottom:9px;
+
+  color:#624c43;
+
+  font:
+    600
+    12px
+    Arial,
+    sans-serif;
+
+  letter-spacing:.5px;
+
+}
+
+.required{
+
+  color:
+    var(--maroon);
+
+}
+
+.form-input,
+.form-select,
+.form-textarea{
 
   width:100%;
 
-  height:1100px;
+  border:
+    1px solid
+    #ddc9aa;
+
+  border-radius:10px;
+
+  outline:none;
+
+  background:#fffdfa;
+
+  color:#4b3e38;
+
+  font:
+    15px
+    Arial,
+    sans-serif;
+
+  transition:
+    border .2s ease,
+    box-shadow .2s ease;
+
+}
+
+.form-input,
+.form-select{
+
+  height:52px;
+
+  padding:
+    0 16px;
+
+}
+
+.form-textarea{
+
+  min-height:130px;
+
+  padding:
+    15px 16px;
+
+  resize:vertical;
+
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+
+  border-color:
+    var(--maroon);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(150,61,73,.08);
+
+}
+
+
+/* attendance */
+
+.choice-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:13px;
+
+}
+
+.choice-card{
+
+  cursor:pointer;
+
+}
+
+.choice-card input{
+
+  position:absolute;
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+.choice-box{
+
+  min-height:115px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:18px;
+
+  border:
+    1px solid
+    #ddc9ab;
+
+  border-radius:13px;
+
+  background:#fffdfa;
+
+  text-align:center;
+
+  transition:
+    .22s ease;
+
+}
+
+.choice-icon{
+
+  margin-bottom:7px;
+
+  color:
+    var(--maroon);
+
+  font-size:25px;
+
+}
+
+.choice-box strong{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:
+    var(--maroon);
+
+  font:
+    600
+    13px
+    Arial,
+    sans-serif;
+
+}
+
+.choice-box small{
+
+  color:#897367;
+
+  font:
+    11px
+    Arial,
+    sans-serif;
+
+}
+
+.choice-card
+input:checked
++
+.choice-box{
+
+  border-color:
+    var(--maroon);
+
+  background:#f9e7e2;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(150,61,73,.08);
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* events */
+
+.event-choice-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:11px;
+
+}
+
+.event-choice{
+
+  cursor:pointer;
+
+}
+
+.event-choice input{
+
+  position:absolute;
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+.event-choice-box{
+
+  min-height:125px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:6px;
+
+  padding:15px;
+
+  border:
+    1px solid
+    #ddc9ab;
+
+  border-radius:13px;
+
+  background:#fffdfa;
+
+  text-align:center;
+
+  transition:.22s ease;
+
+}
+
+.event-choice-icon{
+
+  font-size:28px;
+
+}
+
+.event-choice-box strong{
+
+  color:
+    var(--maroon);
+
+  font:
+    600
+    13px
+    Arial,
+    sans-serif;
+
+}
+
+.event-choice-box small{
+
+  color:#8c786c;
+
+  font:
+    10px
+    Arial,
+    sans-serif;
+
+  line-height:1.4;
+
+}
+
+.event-choice
+input:checked
++
+.event-choice-box{
+
+  border-color:
+    var(--maroon);
+
+  background:
+    #f9e7e2;
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* submit */
+
+.submit-button{
+
+  width:100%;
+
+  min-height:56px;
+
+  margin-top:9px;
 
   border:0;
 
-  border-radius:12px;
+  border-radius:32px;
 
-  background:white;
+  cursor:pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #aa4b56,
+      #7d303a
+    );
+
+  color:white;
+
+  font:
+    700
+    12px
+    Arial,
+    sans-serif;
+
+  letter-spacing:3px;
+
+  box-shadow:
+    0 10px 25px
+    rgba(117,43,52,.22);
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+
 }
 
-/* =========================================
+.submit-button:hover{
+
+  transform:
+    translateY(-2px);
+
+}
+
+.submit-button:disabled{
+
+  cursor:not-allowed;
+
+  opacity:.65;
+
+  transform:none;
+
+}
+
+
+/* RSVP error */
+
+.form-error{
+
+  display:none;
+
+  margin:
+    0 0 20px;
+
+  padding:
+    12px 15px;
+
+  border-radius:8px;
+
+  background:#f8e2df;
+
+  color:#873641;
+
+  font:
+    12px
+    Arial,
+    sans-serif;
+
+  line-height:1.5;
+
+}
+
+
+/* Thank You */
+
+.thank-you{
+
+  display:none;
+
+  padding:
+    25px 10px;
+
+  text-align:center;
+
+}
+
+.thank-heart{
+
+  margin-bottom:10px;
+
+  color:
+    var(--maroon);
+
+  font-size:52px;
+
+}
+
+.thank-you h3{
+
+  margin:
+    0 0 12px;
+
+  color:
+    var(--maroon);
+
+  font-size:40px;
+
+  font-weight:normal;
+
+}
+
+.thank-you p{
+
+  max-width:500px;
+
+  margin:auto;
+
+  color:#715c51;
+
+  font-size:15px;
+
+  line-height:1.8;
+
+}
+
+.thank-signature{
+
+  margin-top:25px;
+
+  color:
+    var(--maroon);
+
+  font-family:
+    "Brush Script MT",
+    cursive;
+
+  font-size:36px;
+
+}
+
+
+/* =========================================================
    FLOATING RSVP
-========================================= */
+========================================================= */
 
 .floating-rsvp{
+
   position:fixed;
 
   right:18px;
-  bottom:18px;
+  bottom:
+    calc(
+      18px +
+      env(safe-area-inset-bottom)
+    );
 
   z-index:700;
 
-  padding:14px 20px;
+  padding:
+    14px 20px;
 
   border-radius:40px;
 
-  background:#963d49;
+  background:
+    var(--maroon);
 
   color:white;
 
   text-decoration:none;
 
-  font:700 11px Arial,sans-serif;
+  font:
+    700
+    11px
+    Arial,
+    sans-serif;
 
   letter-spacing:2px;
 
-  box-shadow:0 8px 24px rgba(76,31,35,.28);
+  box-shadow:
+    0 8px 25px
+    rgba(75,29,34,.3);
+
 }
 
-/* =========================================
+
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 footer{
-  padding:42px 20px;
+
+  padding:
+    45px 20px;
 
   text-align:center;
 
-  background:#304638;
+  background:
+    var(--green-dark);
 
-  color:#f2dfbd;
+  color:#f0dfbd;
+
 }
 
-/* =========================================
-   SCROLL ANIMATION
-========================================= */
+.footer-name{
+
+  margin-bottom:11px;
+
+  font-size:25px;
+
+}
+
+.footer-small{
+
+  font:
+    10px
+    Arial,
+    sans-serif;
+
+  letter-spacing:3px;
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 .reveal{
+
   opacity:0;
 
-  transform:translateY(35px);
+  transform:
+    translateY(35px);
 
   transition:
     opacity .8s ease,
     transform .8s ease;
+
 }
 
 .reveal.visible{
+
   opacity:1;
-  transform:translateY(0);
+
+  transform:
+    translateY(0);
+
 }
 
-/* =========================================
+
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media(max-width:760px){
 
   .envelope-stage{
-    height:290px;
+
+    height:285px;
+
   }
 
   .seal{
+
     width:82px;
     height:82px;
+
     font-size:20px;
+
   }
 
   .tap-text{
+
     bottom:34px;
+
     font-size:9px;
+
   }
 
+
   nav{
+
     justify-content:flex-start;
-    gap:22px;
+
+    gap:20px;
+
   }
+
+
+  .hero{
+
+    min-height:88vh;
+
+    padding-top:80px;
+
+  }
+
+
+  .flower-garland span{
+
+    font-size:19px;
+
+    line-height:20px;
+
+  }
+
+
+  .banana{
+
+    font-size:78px;
+
+  }
+
 
   .events-grid,
   .ritual-grid{
+
     grid-template-columns:1fr;
+
   }
 
-  .banana-leaf{
-    font-size:72px;
+
+  .form-row{
+
+    grid-template-columns:1fr;
+
+    gap:0;
+
   }
 
-  .hanging-flower{
-    width:45px;
+
+  .choice-grid{
+
+    grid-template-columns:1fr;
+
   }
 
-  .form-shell iframe{
-    height:1250px;
+
+  .event-choice-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .rsvp-card{
+
+    padding:
+      40px 20px;
+
+  }
+
+
+  .story-section,
+  .events-section,
+  .ritual-intro,
+  .rituals,
+  .venue,
+  .rsvp-section{
+
+    padding-top:72px;
+    padding-bottom:72px;
+
+  }
+
+
+  .floating-rsvp{
+
+    right:12px;
+
+    padding:
+      13px 17px;
+
   }
 
 }
 
 </style>
+
 </head>
+
 
 <body class="locked">
 
-<!-- =========================================
-     ENVELOPE
-========================================= -->
+
+<!-- =========================================================
+     ENVELOPE OPENING
+========================================================= -->
 
 <div id="openingScreen">
 
@@ -932,20 +2116,28 @@ footer{
     <div class="envelope">
 
       <div class="envelope-bottom"></div>
+
       <div class="envelope-front-left"></div>
+
       <div class="envelope-front-right"></div>
+
       <div class="envelope-flap"></div>
+
 
       <button
         class="seal"
         id="seal"
+        type="button"
         aria-label="Open invitation"
       >
         C&M
       </button>
 
+
       <div class="tap-text">
+
         TAP THE SEAL TO OPEN
+
       </div>
 
     </div>
@@ -954,688 +2146,1857 @@ footer{
 
 </div>
 
-<!-- =========================================
-     NAV
-========================================= -->
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav>
 
-<a href="#home">
-HOME
-</a>
+  <a href="#home">
+    HOME
+  </a>
 
-<a href="#story">
-OUR STORY
-</a>
+  <a href="#story">
+    OUR STORY
+  </a>
 
-<a href="#events">
-EVENTS
-</a>
+  <a href="#events">
+    EVENTS
+  </a>
 
-<a href="#ritual-image">
-RITUALS
-</a>
+  <a href="#rituals">
+    RITUALS
+  </a>
 
-<a href="#venue">
-VENUE
-</a>
+  <a href="#venue">
+    VENUE
+  </a>
 
-<a
-  class="rsvp-nav"
-  href="#rsvp"
->
-RSVP
-</a>
+  <a
+    href="#rsvp"
+    class="rsvp-nav"
+  >
+    RSVP
+  </a>
 
 </nav>
 
-<!-- =========================================
+
+<!-- =========================================================
      HERO
-========================================= -->
+========================================================= -->
 
 <section
   class="hero"
   id="home"
 >
 
-<div class="hanging-flower left">
-  <div class="flower-string">
+  <div class="flower-garland left">
+
     <span>🌼</span>
     <span>🌸</span>
     <span>🌼</span>
     <span>🌺</span>
     <span>🌼</span>
     <span>🌸</span>
-  </div>
-</div>
 
-<div class="hanging-flower right">
-  <div class="flower-string">
+  </div>
+
+
+  <div class="flower-garland right">
+
     <span>🌼</span>
     <span>🌸</span>
     <span>🌼</span>
     <span>🌺</span>
     <span>🌼</span>
     <span>🌸</span>
+
   </div>
-</div>
-
-<div class="banana-leaf left">
-🌿
-</div>
-
-<div class="banana-leaf right">
-🌿
-</div>
 
 
-<div class="hero-inner">
+  <div class="banana left">
+    🌿
+  </div>
 
-<div class="hero-small">
-A LITTLE GLIMPSE OF OUR FOREVER
-</div>
+  <div class="banana right">
+    🌿
+  </div>
 
-<h1>
-Chaitanya & Mounisha
-</h1>
 
-<div class="hero-date">
-OCTOBER 23 • 24 • 25
-</div>
+  <div class="hero-inner">
 
-<div class="hero-divider"></div>
 
-<div class="hero-copy">
+    <div class="hero-small">
 
-With the blessings of our families,
-we invite you to celebrate
-three beautiful days of love,
-tradition and togetherness.
+      A LITTLE GLIMPSE OF OUR FOREVER
 
-</div>
+    </div>
 
-<a
-  class="hero-rsvp"
-  href="#rsvp"
->
-♥ RSVP NOW
-</a>
 
-</div>
+    <h1>
 
-</section>
+      Chaitanya & Mounisha
 
-<!-- =========================================
-     MAIN IMAGE 1
-========================================= -->
+    </h1>
 
-<section class="image-feature reveal">
 
-<div class="eyebrow">
-A CELEBRATION OF LOVE
-</div>
+    <div class="hero-date">
 
-<h2 class="section-heading">
-Our Wedding Journey
-</h2>
+      OCTOBER 23 • 24 • 25
 
-<div class="image-frame">
+    </div>
 
-<!--
-UPLOAD YOUR FIRST WEDDING ILLUSTRATION AS:
-wedding-main.png
--->
 
-<img
-  src="wedding-main.png"
-  alt="Wedding illustration"
-/>
+    <div class="divider"></div>
 
-</div>
+
+    <p>
+
+      With the blessings of our families,
+      we invite you to celebrate
+      three beautiful days of love,
+      tradition and togetherness.
+
+    </p>
+
+
+    <a
+      href="#rsvp"
+      class="primary-button"
+    >
+
+      ♥ RSVP NOW
+
+    </a>
+
+
+  </div>
 
 </section>
 
-<!-- =========================================
-     STORY
-========================================= -->
+
+<!-- =========================================================
+     OUR STORY
+========================================================= -->
 
 <section
   class="story-section reveal"
   id="story"
 >
 
-<div class="banana-leaf left">
-🌿
-</div>
+  <div class="banana left">
+    🌿
+  </div>
 
-<div class="banana-leaf right">
-🌿
-</div>
+  <div class="banana right">
+    🌿
+  </div>
 
-<div class="story-card">
 
-<div class="eyebrow">
-TWO JOURNEYS • ONE FOREVER
-</div>
+  <div class="story-card">
 
-<h2 class="section-heading">
-Our Wedding Story
-</h2>
+    <div class="eyebrow">
 
-<p>
+      TWO JOURNEYS • ONE FOREVER
 
-Somewhere between conversations,
-laughter and shared dreams,
-two separate journeys became one.
+    </div>
 
-<br><br>
 
-Now, surrounded by the people
-who mean the most to us,
-we are beginning a new chapter together.
+    <h2 class="section-title">
 
-<br><br>
+      Our Wedding Story
 
-With grateful hearts,
-we invite you to be part
-of our wedding celebrations
-and the beginning of our forever.
+    </h2>
 
-</p>
 
-</div>
+    <p>
+
+      Somewhere between conversations,
+      laughter and shared dreams,
+      two separate journeys became one.
+
+      <br><br>
+
+      Now, surrounded by the people
+      who mean the most to us,
+      we are beginning a new chapter together.
+
+      <br><br>
+
+      With grateful hearts,
+      we invite you to be part of our
+      wedding celebrations and
+      the beginning of our forever.
+
+    </p>
+
+  </div>
 
 </section>
 
-<!-- =========================================
+
+<!-- =========================================================
      EVENTS
-========================================= -->
+========================================================= -->
 
 <section
   class="events-section reveal"
   id="events"
 >
 
-<div style="text-align:center">
+  <div class="events-header">
 
-<div class="eyebrow">
-JOIN OUR CELEBRATION
-</div>
 
-<h2 class="section-heading">
-Wedding Events
-</h2>
+    <div class="eyebrow">
 
-</div>
+      JOIN OUR CELEBRATION
 
-<div class="events-grid">
+    </div>
 
-<div class="event-card">
 
-<div class="event-art">
-💃🏽
-</div>
+    <h2 class="section-title">
 
-<div class="event-body">
+      Wedding Events
 
-<div class="event-date">
-OCTOBER 23
-</div>
+    </h2>
 
-<h3>
-Sangeeth
-</h3>
 
-<div class="telugu">
-సంగీత్
-</div>
+  </div>
 
-<p>
-An evening of music,
-dance, laughter and togetherness.
-</p>
 
-</div>
-</div>
+  <div class="events-grid">
 
-<div class="event-card">
 
-<div class="event-art">
-🌼
-</div>
+    <!-- SANGEETH -->
 
-<div class="event-body">
+    <article class="event-card">
 
-<div class="event-date">
-OCTOBER 24
-</div>
+      <div class="event-top">
 
-<h3>
-Haldi
-</h3>
+        💃🏽
 
-<div class="telugu">
-పసుపు వేడుక
-</div>
+      </div>
 
-<p>
-A bright celebration of turmeric,
-blessings and beautiful beginnings.
-</p>
 
-</div>
-</div>
+      <div class="event-content">
 
-<div class="event-card">
+        <div class="event-date">
 
-<div class="event-art">
-🪷
-</div>
+          OCTOBER 23
 
-<div class="event-body">
+        </div>
 
-<div class="event-date">
-OCTOBER 25
-</div>
 
-<h3>
-Wedding
-</h3>
+        <h3>
 
-<div class="telugu">
-పెళ్లి
-</div>
+          Sangeeth
 
-<p>
-Two hearts and two families
-come together for one beautiful forever.
-</p>
+        </h3>
 
-</div>
-</div>
 
-</div>
+        <div class="telugu">
+
+          సంగీత్
+
+        </div>
+
+
+        <p>
+
+          Friday evening,
+          8:00 PM – 12:00 AM.
+
+          <br>
+
+          An evening filled with music,
+          dancing, laughter and celebration.
+
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <!-- HALDI -->
+
+    <article class="event-card">
+
+      <div class="event-top">
+
+        🌼
+
+      </div>
+
+
+      <div class="event-content">
+
+        <div class="event-date">
+
+          OCTOBER 24
+
+        </div>
+
+
+        <h3>
+
+          Haldi
+
+        </h3>
+
+
+        <div class="telugu">
+
+          పసుపు వేడుక
+
+        </div>
+
+
+        <p>
+
+          Saturday afternoon.
+
+          <br>
+
+          A colorful celebration of
+          turmeric, blessings,
+          laughter and beautiful beginnings.
+
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <!-- WEDDING -->
+
+    <article class="event-card">
+
+      <div class="event-top">
+
+        🪷
+
+      </div>
+
+
+      <div class="event-content">
+
+        <div class="event-date">
+
+          OCTOBER 25
+
+        </div>
+
+
+        <h3>
+
+          Wedding
+
+        </h3>
+
+
+        <div class="telugu">
+
+          పెళ్లి
+
+        </div>
+
+
+        <p>
+
+          Sunday morning,
+          9:45 AM.
+
+          <br>
+
+          Two hearts and two families
+          come together for
+          one beautiful forever.
+
+        </p>
+
+      </div>
+
+    </article>
+
+
+  </div>
 
 </section>
 
-<!-- =========================================
-     FULL RITUAL IMAGE
-========================================= -->
+
+<!-- =========================================================
+     RITUAL IMAGE PLACEHOLDER
+     WE WILL ADD YOUR FULL IMAGE LATER
+========================================================= -->
 
 <section
-  class="ritual-image-section reveal"
-  id="ritual-image"
+  class="ritual-intro reveal"
 >
 
-<div class="eyebrow">
-OUR SACRED TRADITIONS
-</div>
+  <div class="eyebrow">
 
-<h2 class="section-heading">
-The Telugu Wedding Ceremony
-</h2>
+    OUR SACRED TRADITIONS
 
-<p style="
-max-width:700px;
-margin:16px auto 0;
-font-size:14px;
-line-height:1.8;
-">
+  </div>
 
-Every ritual in a Telugu wedding
-carries its own blessing,
-symbolism and meaning.
 
-</p>
+  <h2 class="section-title">
 
-<div class="ritual-full-image">
+    The Telugu Wedding Ceremony
 
-<!--
-UPLOAD THE LARGE RITUAL IMAGE AS:
-rituals-full.png
--->
+  </h2>
 
-<img
-  src="rituals-full.png"
-  alt="Telugu wedding rituals"
-/>
 
-</div>
+  <p
+    style="
+      max-width:680px;
+      margin:17px auto 0;
+      line-height:1.8;
+      font-size:14px;
+    "
+  >
+
+    A Telugu wedding is filled with
+    meaningful rituals that celebrate
+    partnership, family, blessings
+    and the beginning of a shared life.
+
+  </p>
+
+
+  <div class="ritual-placeholder">
+
+    Our full illustrated Telugu wedding
+    ritual artwork will appear here.
+
+    <br><br>
+
+    We will add your selected illustration
+    when we work on the images.
+
+  </div>
 
 </section>
 
-<!-- =========================================
-     RITUAL EXPLANATIONS
-========================================= -->
+
+<!-- =========================================================
+     RITUAL MEANINGS
+========================================================= -->
 
 <section
-  class="rituals-section reveal"
+  class="rituals reveal"
   id="rituals"
 >
 
-<div style="text-align:center">
+  <div class="ritual-header">
 
-<div class="eyebrow">
-TIMELESS TRADITIONS
-</div>
+    <div class="eyebrow">
 
-<h2 class="section-heading">
-Sacred Rituals & Their Meaning
-</h2>
+      TIMELESS TRADITIONS
 
-</div>
+    </div>
 
-<div class="ritual-grid">
 
-<div class="ritual-card">
-<h3>Gowri Puja</h3>
-<div class="telugu">గౌరీ పూజ</div>
-<p>
-The bride seeks the blessings
-of Goddess Gowri for harmony,
-happiness and a prosperous married life.
-</p>
-</div>
+    <h2 class="section-title">
 
-<div class="ritual-card">
-<h3>Jeelakarra Bellam</h3>
-<div class="telugu">జీలకర్ర బెల్లం</div>
-<p>
-Cumin and jaggery represent
-two lives becoming inseparable,
-sharing both the sweet and
-challenging moments of life.
-</p>
-</div>
+      Sacred Rituals & Their Meaning
 
-<div class="ritual-card">
-<h3>Mangalyadharanam</h3>
-<div class="telugu">మాంగల్యధారణ</div>
-<p>
-The tying of the mangalsutra
-marks the marital bond,
-commitment and lifelong companionship.
-</p>
-</div>
+    </h2>
 
-<div class="ritual-card">
-<h3>Talambralu</h3>
-<div class="telugu">తలంబ్రాలు</div>
-<p>
-The couple showers sacred rice
-over one another,
-symbolizing joy, abundance
-and prosperity.
-</p>
-</div>
+  </div>
 
-<div class="ritual-card">
-<h3>Saptapadi</h3>
-<div class="telugu">సప్తపది</div>
-<p>
-Seven sacred steps represent
-seven promises for partnership,
-strength, family and shared life.
-</p>
-</div>
 
-<div class="ritual-card">
-<h3>Kanyadanam</h3>
-<div class="telugu">కన్యాదానం</div>
-<p>
-A meaningful family blessing
-that represents trust,
-love and the joining
-of two families.
-</p>
-</div>
+  <div class="ritual-grid">
 
-</div>
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🪔
+      </div>
+
+      <h3>
+        Gowri Puja
+      </h3>
+
+      <div class="telugu">
+        గౌరీ పూజ
+      </div>
+
+      <p>
+
+        The bride seeks Goddess Gowri's
+        blessings for harmony,
+        happiness and a beautiful
+        married life.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🌿
+      </div>
+
+      <h3>
+        Jeelakarra Bellam
+      </h3>
+
+      <div class="telugu">
+        జీలకర్ర బెల్లం
+      </div>
+
+      <p>
+
+        Cumin and jaggery symbolize
+        two lives becoming inseparable
+        while sharing both the sweet
+        and challenging moments of life.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🤲
+      </div>
+
+      <h3>
+        Kanyadanam
+      </h3>
+
+      <div class="telugu">
+        కన్యాదానం
+      </div>
+
+      <p>
+
+        A meaningful family blessing
+        representing trust, love
+        and the joining of two families.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🤝
+      </div>
+
+      <h3>
+        Panigrahanam
+      </h3>
+
+      <div class="telugu">
+        పాణిగ్రహణం
+      </div>
+
+      <p>
+
+        The groom holds the bride's hand,
+        symbolizing partnership,
+        companionship and shared
+        responsibility.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        📿
+      </div>
+
+      <h3>
+        Mangalyadharanam
+      </h3>
+
+      <div class="telugu">
+        మాంగల్యధారణ
+      </div>
+
+      <p>
+
+        Tying the mangalsutra represents
+        commitment and the sacred
+        marital bond.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🌾
+      </div>
+
+      <h3>
+        Talambralu
+      </h3>
+
+      <div class="telugu">
+        తలంబ్రాలు
+      </div>
+
+      <p>
+
+        The couple showers sacred rice
+        over one another,
+        symbolizing happiness,
+        abundance and prosperity.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        👣
+      </div>
+
+      <h3>
+        Saptapadi
+      </h3>
+
+      <div class="telugu">
+        సప్తపది
+      </div>
+
+      <p>
+
+        Seven sacred steps represent
+        promises for partnership,
+        family, strength and
+        a shared life together.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        ✨
+      </div>
+
+      <h3>
+        Arundhati Nakshatram
+      </h3>
+
+      <div class="telugu">
+        అరుంధతి నక్షత్రం
+      </div>
+
+      <p>
+
+        The couple is shown the
+        Arundhati star,
+        traditionally symbolizing
+        devotion and companionship.
+
+      </p>
+
+    </div>
+
+
+    <div class="ritual-card">
+
+      <div class="ritual-icon">
+        🌸
+      </div>
+
+      <h3>
+        Appagintalu
+      </h3>
+
+      <div class="telugu">
+        అప్పగింతలు
+      </div>
+
+      <p>
+
+        An emotional moment of
+        blessings and transition
+        as the bride begins
+        a new chapter of life.
+
+      </p>
+
+    </div>
+
+
+  </div>
 
 </section>
 
-<!-- =========================================
+
+<!-- =========================================================
      VENUE
-========================================= -->
+========================================================= -->
 
 <section
-  class="venue-section reveal"
+  class="venue reveal"
   id="venue"
 >
 
-<div class="banana-leaf left">
-🌿
-</div>
+  <div class="banana left">
+    🌿
+  </div>
 
-<div class="banana-leaf right">
-🌿
-</div>
+  <div class="banana right">
+    🌿
+  </div>
 
-<div class="eyebrow">
-THE CELEBRATION
-</div>
 
-<h2 class="section-heading">
-Jordan Ranch
-</h2>
+  <div class="eyebrow">
 
-<div class="venue-box">
+    OUR CELEBRATION
 
-<h3 style="
-margin:0 0 10px;
-color:#963d49;
-font-size:34px;
-font-weight:normal;
-">
-Jordan Ranch
-</h3>
+  </div>
 
-<p>
-3136 Jordan Valley Rd<br>
-Dallas, TX 75253
-</p>
 
-</div>
+  <h2 class="section-title">
+
+    Jordan Ranch
+
+  </h2>
+
+
+  <div class="venue-card">
+
+
+    <div
+      style="
+        font-size:47px;
+        margin-bottom:8px;
+      "
+    >
+
+      🌿
+
+    </div>
+
+
+    <h3>
+
+      Jordan Ranch
+
+    </h3>
+
+
+    <p>
+
+      3136 Jordan Valley Rd
+      <br>
+
+      Dallas, TX 75253
+
+    </p>
+
+
+    <a
+      class="primary-button"
+      style="
+        margin-top:15px;
+      "
+      href="https://maps.google.com/?q=3136+Jordan+Valley+Rd+Dallas+TX+75253"
+      target="_blank"
+      rel="noopener"
+    >
+
+      VIEW MAP
+
+    </a>
+
+
+  </div>
 
 </section>
 
-<!-- =========================================
-     GOOGLE FORM RSVP
-========================================= -->
+
+<!-- =========================================================
+     CUSTOM RSVP FORM
+========================================================= -->
 
 <section
   class="rsvp-section reveal"
   id="rsvp"
 >
 
-<div class="eyebrow">
-WE WOULD LOVE TO CELEBRATE WITH YOU
-</div>
+  <div class="rsvp-decoration one">
 
-<h2>
-RSVP
-</h2>
+    ❀
 
-<p>
+  </div>
 
-Please let us know
-if you'll be joining us.
+  <div class="rsvp-decoration two">
 
-Your responses will be submitted
-directly to our wedding RSVP form.
+    ❀
 
-</p>
+  </div>
 
-<div class="form-shell">
 
-<iframe
-  src="https://docs.google.com/forms/d/e/1FAIpQLSfNjEPCM0oNA_id6ouyNqeBBR3xuE6Ugdp3LL8tApKGIe83mw/viewform?embedded=true"
-  loading="lazy"
-  title="Wedding RSVP Form"
->
-Loading…
-</iframe>
+  <div class="rsvp-card">
 
-</div>
+
+    <div
+      id="rsvpFormContent"
+    >
+
+
+      <div class="rsvp-heading">
+
+        <div class="eyebrow">
+
+          WE WOULD LOVE TO CELEBRATE WITH YOU
+
+        </div>
+
+
+        <h2>
+
+          RSVP
+
+        </h2>
+
+
+        <p>
+
+          Kindly let us know
+          if you'll be joining our celebration.
+
+          Your response helps us
+          plan each beautiful moment
+          with you in mind.
+
+        </p>
+
+      </div>
+
+
+      <div
+        class="form-error"
+        id="formError"
+      >
+
+        Please complete all required fields.
+
+      </div>
+
+
+      <!--
+        NETLIFY FORM
+
+        Responses will appear in:
+        Netlify → Site → Forms → Wedding RSVP
+      -->
+
+      <form
+        id="rsvpForm"
+
+        name="Wedding RSVP"
+
+        method="POST"
+
+        data-netlify="true"
+
+        netlify-honeypot="bot-field"
+      >
+
+
+        <!-- required by Netlify -->
+
+        <input
+          type="hidden"
+          name="form-name"
+          value="Wedding RSVP"
+        >
+
+
+        <!-- spam protection -->
+
+        <p
+          style="
+            display:none;
+          "
+        >
+
+          <label>
+
+            Don't fill this out:
+
+            <input
+              name="bot-field"
+            >
+
+          </label>
+
+        </p>
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="guestName"
+          >
+
+            Your Name
+
+            <span class="required">
+              *
+            </span>
+
+          </label>
+
+
+          <input
+            class="form-input"
+
+            type="text"
+
+            id="guestName"
+
+            name="Your name"
+
+            placeholder="Enter your name"
+
+            required
+          >
+
+        </div>
+
+
+        <!-- ATTENDANCE -->
+
+        <div class="form-group">
+
+
+          <div class="form-label">
+
+            Will you be joining us?
+
+            <span class="required">
+              *
+            </span>
+
+          </div>
+
+
+          <div class="choice-grid">
+
+
+            <label class="choice-card">
+
+
+              <input
+                type="radio"
+
+                name="Will you be joining us"
+
+                value="Joyfully accepting"
+
+                required
+              >
+
+
+              <span class="choice-box">
+
+                <span class="choice-icon">
+                  ♡
+                </span>
+
+                <strong>
+
+                  Joyfully Accepting
+
+                </strong>
+
+                <small>
+
+                  Can't wait to celebrate!
+
+                </small>
+
+              </span>
+
+
+            </label>
+
+
+            <label class="choice-card">
+
+
+              <input
+                type="radio"
+
+                name="Will you be joining us"
+
+                value="Regretfully declining"
+              >
+
+
+              <span class="choice-box">
+
+                <span class="choice-icon">
+                  ✦
+                </span>
+
+                <strong>
+
+                  Regretfully Declining
+
+                </strong>
+
+                <small>
+
+                  Sending our love
+
+                </small>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- NUMBER OF GUESTS -->
+
+        <div
+          class="form-group"
+          id="guestCountGroup"
+        >
+
+          <label
+            class="form-label"
+            for="guestCount"
+          >
+
+            Number of Guests
+
+            <span class="required">
+              *
+            </span>
+
+          </label>
+
+
+          <input
+            class="form-input"
+
+            type="number"
+
+            id="guestCount"
+
+            name="Number of guests"
+
+            min="1"
+
+            max="10"
+
+            placeholder="Example: 2"
+
+            required
+          >
+
+        </div>
+
+
+        <!-- EVENTS -->
+
+        <div
+          class="form-group"
+          id="eventsGroup"
+        >
+
+
+          <div class="form-label">
+
+            Which events will you attend?
+
+            <span class="required">
+              *
+            </span>
+
+          </div>
+
+
+          <div class="event-choice-grid">
+
+
+            <label class="event-choice">
+
+
+              <input
+
+                type="checkbox"
+
+                name="Events attending"
+
+                value="Sangeeth - Friday evening 8 to 12"
+
+              >
+
+
+              <span class="event-choice-box">
+
+                <span class="event-choice-icon">
+
+                  💃🏽
+
+                </span>
+
+                <strong>
+
+                  Sangeeth
+
+                </strong>
+
+                <small>
+
+                  October 23
+                  <br>
+                  8 PM – 12 AM
+
+                </small>
+
+              </span>
+
+
+            </label>
+
+
+            <label class="event-choice">
+
+
+              <input
+
+                type="checkbox"
+
+                name="Events attending"
+
+                value="Haldi - Saturday afternoon"
+
+              >
+
+
+              <span class="event-choice-box">
+
+                <span class="event-choice-icon">
+
+                  🌼
+
+                </span>
+
+                <strong>
+
+                  Haldi
+
+                </strong>
+
+                <small>
+
+                  October 24
+                  <br>
+                  Afternoon
+
+                </small>
+
+              </span>
+
+
+            </label>
+
+
+            <label class="event-choice">
+
+
+              <input
+
+                type="checkbox"
+
+                name="Events attending"
+
+                value="Wedding - Sunday morning 9:45 AM"
+
+              >
+
+
+              <span class="event-choice-box">
+
+                <span class="event-choice-icon">
+
+                  🪷
+
+                </span>
+
+                <strong>
+
+                  Wedding
+
+                </strong>
+
+                <small>
+
+                  October 25
+                  <br>
+                  9:45 AM
+
+                </small>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="form-group">
+
+
+          <label
+            class="form-label"
+            for="message"
+          >
+
+            Message for the Couple
+
+          </label>
+
+
+          <textarea
+
+            class="form-textarea"
+
+            id="message"
+
+            name="Message for the couple"
+
+            placeholder="Leave us a little note..."
+
+          ></textarea>
+
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          class="submit-button"
+
+          type="submit"
+
+          id="submitButton"
+        >
+
+          SEND MY RSVP
+
+        </button>
+
+
+      </form>
+
+
+    </div>
+
+
+    <!-- THANK YOU SCREEN -->
+
+    <div
+      class="thank-you"
+      id="thankYou"
+    >
+
+
+      <div class="thank-heart">
+
+        ♡
+
+      </div>
+
+
+      <h3>
+
+        Thank You!
+
+      </h3>
+
+
+      <p id="thankYouMessage">
+
+        Your RSVP has been received.
+
+        <br><br>
+
+        We can't wait to celebrate
+        these special moments with you.
+
+      </p>
+
+
+      <div class="thank-signature">
+
+        Chaitanya & Mounisha
+
+      </div>
+
+
+    </div>
+
+
+  </div>
 
 </section>
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-Chaitanya & Mounisha
-<br><br>
 
-<span style="
-font:10px Arial,sans-serif;
-letter-spacing:4px;
-">
-OCTOBER 23 • 24 • 25
-</span>
+  <div class="footer-name">
+
+    Chaitanya & Mounisha
+
+  </div>
+
+
+  <div class="footer-small">
+
+    OCTOBER 23 • 24 • 25
+
+    &nbsp; ✦ &nbsp;
+
+    WITH LOVE
+
+  </div>
+
 
 </footer>
+
+
+<!-- =========================================================
+     FLOATING RSVP
+========================================================= -->
 
 <a
   class="floating-rsvp"
   href="#rsvp"
 >
-♥ RSVP
+
+  ♥ RSVP
+
 </a>
+
 
 <script>
 
-/* =========================================
-   ENVELOPE OPEN
-========================================= */
+/* =========================================================
+   ENVELOPE
+========================================================= */
 
 const seal =
-document.getElementById("seal");
+document.getElementById(
+  "seal"
+);
 
 const envelopeStage =
-document.getElementById("envelopeStage");
+document.getElementById(
+  "envelopeStage"
+);
 
 const openingScreen =
-document.getElementById("openingScreen");
+document.getElementById(
+  "openingScreen"
+);
 
-const home =
-document.getElementById("home");
+let invitationOpened =
+false;
 
-let opened = false;
 
 seal.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-  if(opened){
-    return;
+    if(invitationOpened){
+      return;
+    }
+
+    invitationOpened = true;
+
+
+    envelopeStage.classList.add(
+      "open"
+    );
+
+
+    setTimeout(
+      function(){
+
+        document.body.classList.remove(
+          "locked"
+        );
+
+        openingScreen.classList.add(
+          "hide"
+        );
+
+      },
+      1150
+    );
+
   }
-
-  opened = true;
-
-  envelopeStage.classList.add("open");
-
-  setTimeout(
-  function(){
-
-    document.body.classList.remove("locked");
-
-    openingScreen.classList.add("hide");
-
-  },
-  1150
-  );
-
-  setTimeout(
-  function(){
-
-    home.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-  },
-  1350
-  );
-
-});
+);
 
 
-/* =========================================
-   REVEALS
-========================================= */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 const revealItems =
-document.querySelectorAll(".reveal");
+document.querySelectorAll(
+  ".reveal"
+);
 
-const observer =
+
+const revealObserver =
 new IntersectionObserver(
 
-function(entries){
+  function(entries){
 
-entries.forEach(
-function(entry){
+    entries.forEach(
+      function(entry){
 
-if(entry.isIntersecting){
+        if(
+          entry.isIntersecting
+        ){
 
-entry.target.classList.add("visible");
+          entry.target.classList.add(
+            "visible"
+          );
 
-}
+        }
 
-});
+      }
+    );
 
-},
+  },
 
-{
-threshold:.12
-}
+  {
+    threshold:.12
+  }
 
 );
+
 
 revealItems.forEach(
-function(item){
+  function(item){
 
-observer.observe(item);
+    revealObserver.observe(
+      item
+    );
 
-});
-
-
-/* =========================================
-   SMOOTH LINKS
-========================================= */
-
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(
-function(link){
-
-link.addEventListener(
-"click",
-function(event){
-
-const id =
-this.getAttribute("href");
-
-if(!id || id === "#"){
-  return;
-}
-
-const target =
-document.querySelector(id);
-
-if(target){
-
-event.preventDefault();
-
-target.scrollIntoView({
-  behavior:"smooth",
-  block:"start"
-});
-
-}
-
-}
+  }
 );
 
-});
+
+/* =========================================================
+   SMOOTH ANCHORS
+========================================================= */
+
+document
+.querySelectorAll(
+  'a[href^="#"]'
+)
+.forEach(
+  function(link){
+
+    link.addEventListener(
+      "click",
+      function(event){
+
+        const href =
+        this.getAttribute(
+          "href"
+        );
+
+        if(
+          !href ||
+          href === "#"
+        ){
+          return;
+        }
+
+
+        const target =
+        document.querySelector(
+          href
+        );
+
+
+        if(target){
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+          });
+
+        }
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   RSVP LOGIC
+========================================================= */
+
+const rsvpForm =
+document.getElementById(
+  "rsvpForm"
+);
+
+const submitButton =
+document.getElementById(
+  "submitButton"
+);
+
+const formError =
+document.getElementById(
+  "formError"
+);
+
+const thankYou =
+document.getElementById(
+  "thankYou"
+);
+
+const rsvpFormContent =
+document.getElementById(
+  "rsvpFormContent"
+);
+
+const thankYouMessage =
+document.getElementById(
+  "thankYouMessage"
+);
+
+
+/*
+  If guest declines,
+  event selection is not required.
+*/
+
+const attendanceInputs =
+document.querySelectorAll(
+  'input[name="Will you be joining us"]'
+);
+
+
+attendanceInputs.forEach(
+  function(input){
+
+    input.addEventListener(
+      "change",
+      function(){
+
+        const accepted =
+        document.querySelector(
+          'input[name="Will you be joining us"]:checked'
+        )?.value ===
+        "Joyfully accepting";
+
+
+        const guestCount =
+        document.getElementById(
+          "guestCount"
+        );
+
+
+        if(accepted){
+
+          guestCount.required = true;
+
+        }
+
+        else{
+
+          guestCount.required = false;
+
+          guestCount.value = "1";
+
+        }
+
+      }
+    );
+
+  }
+);
+
+
+/* Netlify form encode */
+
+function encodeFormData(
+  formData
+){
+
+  return new URLSearchParams(
+    formData
+  ).toString();
+
+}
+
+
+/* submit */
+
+rsvpForm.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+
+    formError.style.display =
+    "none";
+
+
+    const attendance =
+    document.querySelector(
+      'input[name="Will you be joining us"]:checked'
+    );
+
+
+    if(!attendance){
+
+      formError.textContent =
+      "Please let us know if you'll be joining us.";
+
+      formError.style.display =
+      "block";
+
+      return;
+
+    }
+
+
+    /*
+      If attending,
+      at least one event
+      must be selected.
+    */
+
+    if(
+      attendance.value ===
+      "Joyfully accepting"
+    ){
+
+      const events =
+      document.querySelectorAll(
+        'input[name="Events attending"]:checked'
+      );
+
+
+      if(events.length === 0){
+
+        formError.textContent =
+        "Please select at least one event you'll be attending.";
+
+        formError.style.display =
+        "block";
+
+        document
+        .getElementById(
+          "eventsGroup"
+        )
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+
+        return;
+
+      }
+
+    }
+
+
+    if(
+      !rsvpForm.checkValidity()
+    ){
+
+      rsvpForm.reportValidity();
+
+      return;
+
+    }
+
+
+    submitButton.disabled =
+    true;
+
+    submitButton.textContent =
+    "SENDING...";
+
+
+    try{
+
+
+      const data =
+      new FormData(
+        rsvpForm
+      );
+
+
+      await fetch(
+        "/",
+        {
+
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+            "application/x-www-form-urlencoded"
+          },
+
+          body:
+            encodeFormData(
+              data
+            )
+
+        }
+      );
+
+
+      /*
+        Personalized thank-you
+      */
+
+      const guestName =
+      document
+      .getElementById(
+        "guestName"
+      )
+      .value
+      .trim();
+
+
+      if(
+        attendance.value ===
+        "Regretfully declining"
+      ){
+
+        thankYouMessage.innerHTML =
+
+          "Thank you, " +
+          guestName +
+          ".<br><br>" +
+          "We'll miss celebrating with you, " +
+          "but we're grateful for your love and wishes.";
+
+      }
+
+      else{
+
+        thankYouMessage.innerHTML =
+
+          "Thank you, " +
+          guestName +
+          "!<br><br>" +
+          "Your RSVP has been received. " +
+          "We can't wait to celebrate with you!";
+
+      }
+
+
+      rsvpFormContent.style.display =
+      "none";
+
+      thankYou.style.display =
+      "block";
+
+
+      thankYou.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"center"
+
+      });
+
+
+    }
+
+    catch(error){
+
+
+      console.error(
+        error
+      );
+
+
+      formError.textContent =
+      "We couldn't send your RSVP. Please try again.";
+
+      formError.style.display =
+      "block";
+
+
+      submitButton.disabled =
+      false;
+
+      submitButton.textContent =
+      "SEND MY RSVP";
+
+
+    }
+
+  }
+);
 
 </script>
 
