@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -959,177 +960,6 @@ nav .rsvp-nav{
 
 
 /* =========================================================
-   GIFT REGISTRY
-========================================================= */
-
-.registry-section{
-  position:relative;
-
-  overflow:hidden;
-
-  padding:100px 20px;
-
-  text-align:center;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff8e9,
-      #f5e6cc
-    );
-}
-
-.registry-section::before{
-  content:"❀";
-
-  position:absolute;
-
-  left:-25px;
-  top:30px;
-
-  font-size:170px;
-
-  color:#d47b84;
-
-  opacity:.08;
-}
-
-.registry-section::after{
-  content:"❀";
-
-  position:absolute;
-
-  right:-25px;
-  bottom:10px;
-
-  font-size:170px;
-
-  color:#648263;
-
-  opacity:.09;
-}
-
-.registry-card{
-  position:relative;
-
-  z-index:3;
-
-  max-width:1050px;
-
-  margin:auto;
-
-  padding:55px 40px;
-
-  border:
-    1px solid rgba(190,151,83,.45);
-
-  background:
-    rgba(255,252,244,.94);
-
-  box-shadow:
-    0 18px 45px rgba(76,53,34,.08);
-}
-
-.registry-heart{
-  margin-bottom:7px;
-
-  color:var(--maroon);
-
-  font-size:36px;
-}
-
-.registry-intro{
-  max-width:680px;
-
-  margin:20px auto 42px;
-
-  color:#725d50;
-
-  font-size:14px;
-
-  line-height:1.9;
-}
-
-.registry-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:18px;
-}
-
-.registry-option{
-  min-height:235px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  padding:30px 22px;
-
-  border:1px solid #dfc9a4;
-
-  border-radius:15px;
-
-  background:#fffdf8;
-
-  color:#55433b;
-
-  text-decoration:none;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
-}
-
-.registry-option:hover{
-  transform:translateY(-5px);
-
-  border-color:var(--maroon);
-
-  box-shadow:
-    0 14px 30px rgba(105,63,55,.12);
-}
-
-.registry-icon{
-  margin-bottom:11px;
-
-  font-size:38px;
-}
-
-.registry-option h3{
-  margin:0 0 8px;
-
-  color:var(--maroon);
-
-  font-size:24px;
-
-  font-weight:normal;
-}
-
-.registry-option p{
-  margin:0 0 18px;
-
-  color:#79665a;
-
-  font-size:12px;
-
-  line-height:1.7;
-}
-
-.registry-option span{
-  color:var(--maroon);
-
-  font:700 10px Arial,sans-serif;
-
-  letter-spacing:2px;
-}
-
-
-/* =========================================================
    RSVP
 ========================================================= */
 
@@ -1229,7 +1059,7 @@ nav .rsvp-nav{
 
 
 /* =========================================================
-   RSVP FORM
+   FORM
 ========================================================= */
 
 .form-group{
@@ -1297,7 +1127,7 @@ nav .rsvp-nav{
 
 
 /* =========================================================
-   RSVP CHOICE CARDS
+   CHOICE CARDS
 ========================================================= */
 
 .choice-grid{
@@ -1578,6 +1408,141 @@ nav .rsvp-nav{
 
 
 /* =========================================================
+   SMALL GIFT REGISTRY
+========================================================= */
+
+.registry-section{
+  position:relative;
+
+  overflow:hidden;
+
+  padding:60px 20px;
+
+  text-align:center;
+
+  background:#fff8e9;
+}
+
+.registry-card{
+  position:relative;
+
+  z-index:3;
+
+  width:min(90%,520px);
+
+  margin:0 auto;
+
+  padding:42px 32px;
+
+  border:1px solid rgba(190,151,83,.45);
+
+  border-radius:18px;
+
+  background:#fffdf8;
+
+  box-shadow:
+    0 14px 35px rgba(76,53,34,.08);
+}
+
+.registry-heart{
+  margin-bottom:6px;
+
+  color:var(--maroon);
+
+  font-size:30px;
+}
+
+.registry-intro{
+  max-width:420px;
+
+  margin:18px auto 28px;
+
+  color:#725d50;
+
+  font-size:13px;
+
+  line-height:1.8;
+}
+
+.registry-grid{
+  display:block;
+
+  max-width:330px;
+
+  margin:0 auto;
+}
+
+.registry-option{
+  min-height:160px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:24px 20px;
+
+  border:1px solid #dfc9a4;
+
+  border-radius:14px;
+
+  background:#fffaf2;
+
+  color:#55433b;
+
+  text-decoration:none;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.registry-option:hover{
+  transform:translateY(-4px);
+
+  border-color:var(--maroon);
+
+  box-shadow:
+    0 12px 25px rgba(105,63,55,.12);
+}
+
+.registry-icon{
+  margin-bottom:8px;
+
+  font-size:30px;
+}
+
+.registry-option h3{
+  margin:0 0 6px;
+
+  color:var(--maroon);
+
+  font-size:22px;
+
+  font-weight:normal;
+}
+
+.registry-option p{
+  margin:0 0 14px;
+
+  color:#79665a;
+
+  font-size:12px;
+
+  line-height:1.6;
+}
+
+.registry-option span{
+  color:var(--maroon);
+
+  font:700 10px Arial,sans-serif;
+
+  letter-spacing:2px;
+}
+
+
+/* =========================================================
    FLOATING RSVP
 ========================================================= */
 
@@ -1707,8 +1672,7 @@ footer{
   }
 
   .events-grid,
-  .ritual-grid,
-  .registry-grid{
+  .ritual-grid{
     grid-template-columns:1fr;
   }
 
@@ -1724,8 +1688,14 @@ footer{
     padding:40px 20px;
   }
 
+  .registry-section{
+    padding:50px 16px;
+  }
+
   .registry-card{
-    padding:40px 20px;
+    width:100%;
+
+    padding:34px 20px;
   }
 
   .story-section,
@@ -1733,7 +1703,6 @@ footer{
   .ritual-intro,
   .rituals,
   .venue,
-  .registry-section,
   .rsvp-section{
     padding-top:72px;
     padding-bottom:72px;
@@ -1783,12 +1752,16 @@ footer{
         type="button"
         aria-label="Open invitation"
       >
+
         C&M
+
       </button>
 
 
       <div class="tap-text">
+
         TAP THE SEAL TO OPEN
+
       </div>
 
     </div>
@@ -1804,17 +1777,25 @@ footer{
 
 <nav>
 
-  <a href="#home">HOME</a>
+  <a href="#home">
+    HOME
+  </a>
 
-  <a href="#story">OUR STORY</a>
+  <a href="#story">
+    OUR STORY
+  </a>
 
-  <a href="#events">EVENTS</a>
+  <a href="#events">
+    EVENTS
+  </a>
 
-  <a href="#rituals">RITUALS</a>
+  <a href="#rituals">
+    RITUALS
+  </a>
 
-  <a href="#venue">VENUE</a>
-
-  <a href="#registry">REGISTRY</a>
+  <a href="#venue">
+    VENUE
+  </a>
 
   <a
     href="#rsvp"
@@ -2011,8 +1992,6 @@ footer{
   <div class="events-grid">
 
 
-    <!-- SANGEETH -->
-
     <article class="event-card">
 
 
@@ -2067,8 +2046,6 @@ footer{
     </article>
 
 
-    <!-- HALDI -->
-
     <article class="event-card">
 
 
@@ -2121,8 +2098,6 @@ footer{
 
     </article>
 
-
-    <!-- WEDDING -->
 
     <article class="event-card">
 
@@ -2536,12 +2511,7 @@ footer{
   <div class="venue-card">
 
 
-    <div
-      style="
-        font-size:47px;
-        margin-bottom:8px;
-      "
-    >
+    <div style="font-size:47px;margin-bottom:8px;">
 
       🌿
 
@@ -2559,7 +2529,6 @@ footer{
 
       3136 Jordan Valley Rd
       <br>
-
       Dallas, TX 75253
 
     </p>
@@ -2578,202 +2547,6 @@ footer{
       OPEN IN MAPS
 
     </a>
-
-
-  </div>
-
-
-</section>
-
-
-<!-- =========================================================
-     GIFT REGISTRY
-========================================================= -->
-
-<section
-  class="registry-section reveal"
-  id="registry"
->
-
-
-  <div class="registry-card">
-
-
-    <div class="registry-heart">
-
-      ♡
-
-    </div>
-
-
-    <div class="eyebrow">
-
-      WITH LOVE & GRATITUDE
-
-    </div>
-
-
-    <h2 class="section-title">
-
-      Gift Registry
-
-    </h2>
-
-
-    <p class="registry-intro">
-
-      Your presence at our celebration
-      is truly the greatest gift.
-
-      <br><br>
-
-      For those who have asked,
-      we have created a few registries
-      to help us begin this beautiful
-      new chapter together.
-
-    </p>
-
-
-    <div class="registry-grid">
-
-
-      <!-- REPLACE THIS LINK -->
-
-      <a
-        class="registry-option"
-
-        href="YOUR_AMAZON_REGISTRY_LINK"
-
-        target="_blank"
-
-        rel="noopener noreferrer"
-      >
-
-
-        <div class="registry-icon">
-
-          🎁
-
-        </div>
-
-
-        <h3>
-
-          Amazon
-
-        </h3>
-
-
-        <p>
-
-          Browse our Amazon
-          wedding registry.
-
-        </p>
-
-
-        <span>
-
-          VIEW REGISTRY →
-
-        </span>
-
-
-      </a>
-
-
-      <!-- REPLACE THIS LINK -->
-
-      <a
-        class="registry-option"
-
-        href="YOUR_TARGET_REGISTRY_LINK"
-
-        target="_blank"
-
-        rel="noopener noreferrer"
-      >
-
-
-        <div class="registry-icon">
-
-          ♡
-
-        </div>
-
-
-        <h3>
-
-          Target
-
-        </h3>
-
-
-        <p>
-
-          Explore our Target
-          wedding registry.
-
-        </p>
-
-
-        <span>
-
-          VIEW REGISTRY →
-
-        </span>
-
-
-      </a>
-
-
-      <!-- REPLACE THIS LINK -->
-
-      <a
-        class="registry-option"
-
-        href="YOUR_OTHER_REGISTRY_LINK"
-
-        target="_blank"
-
-        rel="noopener noreferrer"
-      >
-
-
-        <div class="registry-icon">
-
-          ✨
-
-        </div>
-
-
-        <h3>
-
-          Our Registry
-
-        </h3>
-
-
-        <p>
-
-          View our additional
-          wedding registry.
-
-        </p>
-
-
-        <span>
-
-          VIEW REGISTRY →
-
-        </span>
-
-
-      </a>
-
-
-    </div>
 
 
   </div>
@@ -2843,13 +2616,6 @@ footer{
       </div>
 
 
-      <!--
-      IMPORTANT:
-      This hidden iframe keeps the guest
-      on your wedding website when the
-      Google Form receives the RSVP.
-      -->
-
       <iframe
         name="googleFormFrame"
         id="googleFormFrame"
@@ -2857,12 +2623,6 @@ footer{
         title="RSVP submission"
       ></iframe>
 
-
-      <!-- ===================================================
-           GOOGLE FORM SUBMISSION
-
-           THIS SUBMITS DIRECTLY TO YOUR GOOGLE FORM
-      ==================================================== -->
 
       <form
 
@@ -3091,8 +2851,6 @@ footer{
           <div class="event-choice-grid">
 
 
-            <!-- SANGEETH -->
-
             <label class="event-choice">
 
 
@@ -3137,8 +2895,6 @@ footer{
             </label>
 
 
-            <!-- HALDI -->
-
             <label class="event-choice">
 
 
@@ -3182,8 +2938,6 @@ footer{
 
             </label>
 
-
-            <!-- WEDDING -->
 
             <label class="event-choice">
 
@@ -3289,9 +3043,7 @@ footer{
     </div>
 
 
-    <!-- =====================================================
-         THANK YOU SCREEN
-    ====================================================== -->
+    <!-- THANK YOU -->
 
     <div
       class="thank-you"
@@ -3330,6 +3082,113 @@ footer{
         Chaitanya & Mounisha
 
       </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     SMALL GIFT REGISTRY - NOW AT THE END
+========================================================= -->
+
+<section
+  class="registry-section reveal"
+  id="registry"
+>
+
+
+  <div class="registry-card">
+
+
+    <div class="registry-heart">
+
+      ♡
+
+    </div>
+
+
+    <div class="eyebrow">
+
+      WITH LOVE & GRATITUDE
+
+    </div>
+
+
+    <h2 class="section-title">
+
+      Gift Registry
+
+    </h2>
+
+
+    <p class="registry-intro">
+
+      Your presence at our celebration
+      is truly the greatest gift.
+
+      <br><br>
+
+      For those who have asked,
+      we have created a registry
+      as we begin this beautiful
+      new chapter together.
+
+    </p>
+
+
+    <div class="registry-grid">
+
+
+      <!--
+      REPLACE THIS WITH YOUR ACTUAL REGISTRY LINK
+      -->
+
+      <a
+        class="registry-option"
+
+        href="YOUR_AMAZON_REGISTRY_LINK"
+
+        target="_blank"
+
+        rel="noopener noreferrer"
+      >
+
+
+        <div class="registry-icon">
+
+          🎁
+
+        </div>
+
+
+        <h3>
+
+          Amazon
+
+        </h3>
+
+
+        <p>
+
+          Browse our wedding registry.
+
+        </p>
+
+
+        <span>
+
+          VIEW REGISTRY →
+
+        </span>
+
+
+      </a>
 
 
     </div>
@@ -3645,10 +3504,6 @@ rsvpForm.addEventListener(
     "none";
 
 
-    /*
-      ATTENDANCE
-    */
-
     const attendance =
     document.querySelector(
       'input[name="entry.877086558"]:checked'
@@ -3674,8 +3529,7 @@ rsvpForm.addEventListener(
 
 
     /*
-      IF ACCEPTING:
-      REQUIRE AT LEAST ONE EVENT
+      REQUIRE EVENT ONLY IF ATTENDING
     */
 
     if(
@@ -3725,7 +3579,7 @@ rsvpForm.addEventListener(
 
 
     /*
-      STANDARD HTML VALIDATION
+      BROWSER VALIDATION
     */
 
     if(
@@ -3745,12 +3599,11 @@ rsvpForm.addEventListener(
 
     /*
       IMPORTANT:
-
       DO NOT preventDefault here.
 
-      The actual browser POST goes directly
-      to Google Forms and loads its response
-      into the hidden iframe.
+      Browser sends the RSVP directly
+      to your Google Form inside
+      the hidden iframe.
     */
 
     formSubmitted =
@@ -3777,12 +3630,6 @@ googleFormFrame.addEventListener(
   function(){
 
 
-    /*
-      iframe can load when page initializes,
-      so only show thank-you if an RSVP
-      was actually submitted.
-    */
-
     if(!formSubmitted){
       return;
     }
@@ -3807,10 +3654,6 @@ googleFormFrame.addEventListener(
     );
 
 
-    /*
-      DECLINED
-    */
-
     if(
       attendance &&
       attendance.value ===
@@ -3829,11 +3672,6 @@ googleFormFrame.addEventListener(
 
     }
 
-
-    /*
-      ACCEPTED
-    */
-
     else{
 
       thankYouMessage.innerHTML =
@@ -3850,10 +3688,6 @@ googleFormFrame.addEventListener(
 
     }
 
-
-    /*
-      SHOW THANK YOU
-    */
 
     rsvpFormContent.style.display =
     "none";
@@ -3876,7 +3710,7 @@ googleFormFrame.addEventListener(
 
 
 /* =========================================================
-   SAFE NAME DISPLAY
+   SAFE NAME OUTPUT
 ========================================================= */
 
 function escapeHTML(value){
