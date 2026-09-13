@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+/>
 
 <title>Chaitanya & Mounisha</title>
 
 <style>
-
-/* =========================================================
-   GLOBAL
-========================================================= */
 
 *{
   box-sizing:border-box;
@@ -27,14 +23,9 @@ html{
 body{
   margin:0;
   overflow-x:hidden;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  background:#fbf1df;
-  color:#493c35;
+  background:#fff7ea;
+  color:#4f4037;
+  font-family:Georgia,"Times New Roman",serif;
 }
 
 body.locked{
@@ -42,22 +33,16 @@ body.locked{
 }
 
 :root{
-
-  --cream:#fff7e8;
-  --paper:#fffaf0;
-
-  --forest:#3f5945;
-  --sage:#98aa87;
-
-  --maroon:#963d45;
-  --maroon-dark:#742f35;
-
-  --gold:#c29143;
-
-  --pink:#da8d91;
-
-  --yellow:#e9b742;
-
+  --cream:#fff7ea;
+  --paper:#fffaf2;
+  --green:#405b48;
+  --green-dark:#304638;
+  --sage:#d7e4d5;
+  --pink:#c95f6c;
+  --pink-soft:#e7a3a7;
+  --maroon:#913b47;
+  --gold:#c79b50;
+  --yellow:#e8bc4a;
 }
 
 
@@ -66,302 +51,165 @@ body.locked{
 ========================================================= */
 
 #openingScreen{
-
   position:fixed;
-
   inset:0;
-
   z-index:9999;
 
   display:flex;
-
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
   padding:20px;
 
   background:
-
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(255,255,255,.7),
-      transparent 42%
-    ),
-
-    linear-gradient(
-      145deg,
-      #f5e8d2,
-      #fbf3e5,
-      #ead7ba
-    );
+    radial-gradient(circle at 50% 30%,rgba(255,255,255,.7),transparent 40%),
+    linear-gradient(145deg,#f1dfc8,#fff4e5,#ead4b8);
 
   transition:
-
-    opacity .9s ease,
-    visibility .9s ease;
-
+    opacity .8s ease,
+    visibility .8s ease;
 }
-
 
 #openingScreen.hide{
-
   opacity:0;
-
   visibility:hidden;
-
   pointer-events:none;
-
 }
 
 
 /* =========================================================
-   ENVELOPE
+   CLOSED ENVELOPE
 ========================================================= */
 
-.envelope-wrapper{
-
+.envelope-stage{
   position:relative;
 
-  width:min(88vw,650px);
+  width:min(88vw,680px);
+  height:430px;
 
-  height:410px;
-
-  perspective:1400px;
-
+  perspective:1600px;
 }
-
 
 .envelope{
-
   position:absolute;
-
   inset:0;
-
-  background:#edd3aa;
-
-  box-shadow:
-
-    0 28px 55px
-    rgba(83,54,31,.25);
-
-}
-
-
-/* =========================================================
-   INVITATION CARD INSIDE ENVELOPE
-========================================================= */
-
-.invite-card{
-
-  position:absolute;
-
-  left:6%;
-
-  bottom:15px;
-
-  width:88%;
-
-  height:560px;
-
-  z-index:2;
 
   overflow:hidden;
 
-  background:#fffaf1;
+  border-radius:4px;
+
+  background:
+    linear-gradient(145deg,#d3aa60,#b68a42);
 
   box-shadow:
-
-    0 15px 35px
-    rgba(71,45,26,.18);
-
-  transform:
-
-    translateY(58%);
-
-  transition:
-
-    transform
-    1.45s
-    .5s
-    cubic-bezier(.16,.8,.2,1);
-
+    0 30px 60px rgba(73,45,24,.25);
 }
 
 
-.envelope-wrapper.open
-.invite-card{
+/* front lower folds */
 
-  transform:
-
-    translateY(-38%);
-
-}
-
-
-.invite-preview{
-
-  height:100%;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:center;
-
-  align-items:center;
-
-  padding:30px;
-
-  text-align:center;
-
-  background:
-
-    radial-gradient(
-      circle at 15% 25%,
-      rgba(218,141,145,.18)
-      0 8%,
-      transparent 9%
-    ),
-
-    radial-gradient(
-      circle at 86% 30%,
-      rgba(152,170,135,.2)
-      0 9%,
-      transparent 10%
-    ),
-
-    #fffaf1;
-
-}
-
-
-.preview-small{
-
-  font-size:11px;
-
-  letter-spacing:4px;
-
-}
-
-
-.preview-name{
-
-  margin:
-
-    18px 0 8px;
-
-  font-family:
-
-    "Brush Script MT",
-    "Snell Roundhand",
-    cursive;
-
-  font-size:
-
-    clamp(42px,7vw,67px);
-
-  font-weight:normal;
-
-  color:var(--maroon);
-
-}
-
-
-.preview-sub{
-
-  font-size:11px;
-
-  letter-spacing:5px;
-
-}
-
-
-/* =========================================================
-   ENVELOPE FRONT
-========================================================= */
-
-.envelope-front{
-
+.envelope-front-left,
+.envelope-front-right{
   position:absolute;
+  bottom:0;
 
-  inset:0;
+  width:60%;
+  height:67%;
 
-  z-index:5;
+  z-index:4;
+
+  background:#c59b55;
+}
+
+.envelope-front-left{
+  left:0;
+  clip-path:polygon(0 0,100% 100%,0 100%);
+}
+
+.envelope-front-right{
+  right:0;
+  clip-path:polygon(100% 0,100% 100%,0 100%);
+}
+
+.envelope-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:55%;
+
+  z-index:3;
 
   background:
+    linear-gradient(#d1a65d,#b9873d);
 
-    linear-gradient(
-      145deg,
-      #f3ddb8,
-      #e7c89b
-    );
-
-  clip-path:
-
-    polygon(
-      0 40%,
-      50% 78%,
-      100% 40%,
-      100% 100%,
-      0 100%
-    );
-
+  clip-path:polygon(0 100%,50% 0,100% 100%);
 }
 
 
-/* =========================================================
-   ENVELOPE FLAP
-========================================================= */
+/* top flap */
 
 .envelope-flap{
-
   position:absolute;
 
   top:0;
-
   left:0;
-
   right:0;
 
-  height:64%;
+  height:67%;
 
-  z-index:7;
-
-  background:
-
-    linear-gradient(
-      #f4dfbc,
-      #e1bf8c
-    );
-
-  clip-path:
-
-    polygon(
-      0 0,
-      100% 0,
-      50% 100%
-    );
+  z-index:8;
 
   transform-origin:top;
 
+  background:
+    linear-gradient(#d8b26b,#c09349);
+
+  clip-path:polygon(0 0,100% 0,50% 100%);
+
   transition:
+    transform 1.05s cubic-bezier(.2,.8,.2,1),
+    z-index .2s linear .7s;
+}
 
-    transform
-    1.05s
-    cubic-bezier(.2,.8,.2,1);
-
+.envelope-stage.open .envelope-flap{
+  transform:rotateX(180deg);
+  z-index:1;
 }
 
 
-.envelope-wrapper.open
-.envelope-flap{
+/* inner lining revealed only after opening */
 
-  transform:
+.envelope-lining{
+  position:absolute;
 
-    rotateX(180deg);
+  top:5%;
+  left:7%;
 
-  z-index:1;
+  width:86%;
+  height:62%;
 
+  z-index:2;
+
+  opacity:0;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(191,76,92,.13),
+      rgba(191,76,92,.13) 8px,
+      rgba(255,241,220,.85) 8px,
+      rgba(255,241,220,.85) 16px
+    );
+
+  clip-path:polygon(0 0,100% 0,50% 100%);
+
+  transition:opacity .5s ease .4s;
+}
+
+.envelope-stage.open .envelope-lining{
+  opacity:1;
 }
 
 
@@ -370,242 +218,159 @@ body.locked{
 ========================================================= */
 
 .seal{
-
   position:absolute;
 
   left:50%;
+  top:48%;
 
-  top:46%;
-
-  transform:
-
-    translate(-50%,-50%);
+  transform:translate(-50%,-50%);
 
   z-index:12;
 
-  width:95px;
-
-  height:95px;
+  width:102px;
+  height:102px;
 
   border:0;
-
   border-radius:50%;
 
   cursor:pointer;
 
-  background:
-
-    radial-gradient(
-      circle at 35% 28%,
-      #bb6267,
-      #943e45 57%,
-      #6f2830
-    );
-
-  box-shadow:
-
-    0 6px 0 #592027,
-
-    0 11px 21px
-    rgba(60,32,26,.38),
-
-    inset
-    0 0 0 5px
-    rgba(226,174,120,.38);
-
-  color:#f8ddb3;
+  color:#f5dca9;
 
   font-family:Georgia,serif;
-
-  font-size:24px;
-
+  font-size:25px;
   font-weight:bold;
-
   letter-spacing:2px;
 
+  background:
+    radial-gradient(circle at 34% 28%,#bf6670,#8f3742 58%,#65242d);
+
+  box-shadow:
+    0 6px 0 #522129,
+    0 12px 26px rgba(65,31,28,.35),
+    inset 0 0 0 5px rgba(232,177,123,.38);
+
   transition:
-
-    transform .4s ease,
-    opacity .4s ease;
-
+    transform .45s ease,
+    opacity .45s ease;
 }
 
-
 .seal::before{
-
   content:"";
 
   position:absolute;
 
-  inset:11px;
+  inset:12px;
 
   border-radius:50%;
 
-  border:
-
-    1px solid
-    #e8be80;
-
+  border:1px solid #e6c17e;
 }
 
-
-.envelope-wrapper.open
-.seal{
-
-  animation:
-
-    sealBreak
-    .65s
-    forwards;
-
+.envelope-stage.open .seal{
+  animation:sealOpen .55s forwards;
 }
 
-
-@keyframes sealBreak{
-
+@keyframes sealOpen{
   0%{
-
-    transform:
-
-      translate(-50%,-50%)
-      scale(1);
-
+    transform:translate(-50%,-50%) scale(1);
+    opacity:1;
   }
 
-  45%{
-
-    transform:
-
-      translate(-50%,-50%)
-      scale(1.12)
-      rotate(-4deg);
-
+  50%{
+    transform:translate(-50%,-50%) scale(1.1) rotate(-4deg);
   }
 
   100%{
-
-    transform:
-
-      translate(-50%,25px)
-      scale(.6)
-      rotate(18deg);
-
+    transform:translate(-50%,15px) scale(.55) rotate(16deg);
     opacity:0;
-
   }
-
 }
 
 
-.tap-text{
+/* tap text */
 
+.tap-text{
   position:absolute;
 
   left:0;
-
   right:0;
-
-  bottom:54px;
+  bottom:55px;
 
   z-index:10;
 
   text-align:center;
 
-  font-family:Arial,sans-serif;
+  color:#5e4e3f;
 
-  font-size:12px;
+  font:11px Arial,sans-serif;
 
-  letter-spacing:3px;
+  letter-spacing:4px;
 
-  color:#7d6c5e;
-
-  animation:
-
-    pulse
-    1.8s
-    infinite;
-
+  transition:opacity .3s ease;
 }
 
-
-.envelope-wrapper.open
-.tap-text{
-
+.envelope-stage.open .tap-text{
   opacity:0;
-
-}
-
-
-@keyframes pulse{
-
-  50%{
-
-    opacity:.4;
-
-  }
-
 }
 
 
 /* =========================================================
-   MAIN WEBSITE
+   WEBSITE
 ========================================================= */
 
 #website{
-
   position:relative;
-
-  background:#fbf1df;
-
 }
 
 
 /* =========================================================
-   NAVIGATION
+   NAV
 ========================================================= */
 
 nav{
-
   position:sticky;
-
   top:0;
 
   z-index:500;
 
   display:flex;
-
   justify-content:center;
+  align-items:center;
 
-  gap:34px;
+  gap:28px;
 
-  padding:18px 15px;
+  padding:17px 14px;
 
   overflow-x:auto;
-
   white-space:nowrap;
 
-  background:
-
-    rgba(63,89,69,.98);
+  background:rgba(64,91,72,.97);
 
   box-shadow:
-
-    0 3px 12px
-    rgba(0,0,0,.08);
-
+    0 3px 12px rgba(0,0,0,.08);
 }
 
-
 nav a{
-
-  color:#fff3db;
+  color:#fff3dc;
 
   text-decoration:none;
 
-  font-size:11px;
+  font-size:10px;
 
   letter-spacing:3px;
+}
 
+nav a.rsvp-nav{
+  padding:9px 17px;
+
+  border-radius:24px;
+
+  background:#f6d8a5;
+
+  color:#7d3340;
+
+  font-weight:bold;
 }
 
 
@@ -614,666 +379,199 @@ nav a{
 ========================================================= */
 
 .hero{
-
-  min-height:95vh;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
+  min-height:92vh;
 
   position:relative;
 
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
   overflow:hidden;
 
-  padding:80px 20px;
+  padding:90px 20px;
 
   text-align:center;
 
   background:
-
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(218,141,145,.2)
-      0 7%,
-      transparent 8%
-    ),
-
-    radial-gradient(
-      circle at 90% 26%,
-      rgba(152,170,135,.22)
-      0 8%,
-      transparent 9%
-    ),
-
-    linear-gradient(
-      #fff7e9,
-      #f7e7ca
-    );
-
+    radial-gradient(circle at 12% 19%,rgba(211,94,108,.18) 0 8%,transparent 9%),
+    radial-gradient(circle at 89% 27%,rgba(99,131,94,.18) 0 9%,transparent 10%),
+    linear-gradient(#fff7e9,#f4e1c2);
 }
 
-
 .hero::before{
-
   content:"❀";
 
   position:absolute;
 
-  top:40px;
+  top:45px;
+  left:25px;
 
-  left:30px;
+  font-size:95px;
 
-  font-size:90px;
+  color:#c87077;
 
-  color:#d18a84;
-
-  opacity:.28;
-
+  opacity:.22;
 }
 
-
 .hero::after{
-
   content:"❀";
 
   position:absolute;
 
   bottom:20px;
+  right:25px;
 
-  right:30px;
+  font-size:105px;
 
-  font-size:100px;
+  color:#718d6b;
 
-  color:#79936e;
-
-  opacity:.27;
-
+  opacity:.22;
 }
 
-
 .hero-inner{
-
   position:relative;
-
   z-index:2;
 
   max-width:850px;
-
 }
-
 
 .hero-small{
-
-  font-size:11px;
-
+  font-size:10px;
   letter-spacing:5px;
-
 }
 
-
 .hero h1{
+  margin:14px 0 8px;
 
-  margin:
+  font-family:"Brush Script MT","Snell Roundhand",cursive;
 
-    12px 0 8px;
-
-  font-family:
-
-    "Brush Script MT",
-    "Snell Roundhand",
-    cursive;
-
-  font-size:
-
-    clamp(
-      54px,
-      10vw,
-      100px
-    );
+  font-size:clamp(58px,10vw,105px);
 
   font-weight:normal;
 
   color:var(--maroon);
-
 }
 
-
 .hero-date{
+  margin-top:17px;
 
-  margin-top:12px;
+  color:#6a594f;
 
   font-size:14px;
 
   letter-spacing:6px;
-
-  color:#6c5c51;
-
 }
 
-
 .hero-divider{
-
-  margin:
-
-    30px auto;
-
-  width:180px;
-
+  width:220px;
   height:1px;
 
-  background:
+  margin:30px auto;
 
+  background:
     linear-gradient(
       90deg,
       transparent,
       var(--gold),
       transparent
     );
-
 }
 
+.hero-text{
+  max-width:620px;
 
-.hero-scroll{
+  margin:0 auto;
 
-  margin-top:35px;
+  font-size:14px;
 
-  font:10px Arial,sans-serif;
+  line-height:1.9;
+}
 
-  letter-spacing:4px;
+.hero-rsvp{
+  display:inline-block;
 
-  opacity:.7;
+  margin-top:30px;
 
+  padding:15px 31px;
+
+  border-radius:30px;
+
+  background:var(--maroon);
+
+  color:#fff;
+
+  text-decoration:none;
+
+  font:700 11px Arial,sans-serif;
+
+  letter-spacing:3px;
+
+  box-shadow:
+    0 10px 25px rgba(116,47,55,.2);
 }
 
 
 /* =========================================================
-   PAINT REVEAL
+   GENERIC HEADINGS
 ========================================================= */
 
-.paint-section{
-
-  padding:
-
-    90px 20px;
-
-  background:#fff9ed;
-
-  text-align:center;
-
-}
-
-
 .eyebrow{
+  margin-bottom:8px;
 
-  margin-bottom:7px;
+  color:#806c5a;
 
   font-size:10px;
 
   letter-spacing:4px;
-
-  color:#806a57;
-
 }
 
-
 .section-heading{
-
-  margin:
-
-    0 0 12px;
-
-  font-size:
-
-    clamp(
-      31px,
-      5vw,
-      48px
-    );
-
-  font-weight:normal;
+  margin:0;
 
   color:var(--maroon);
 
-}
+  font-size:clamp(32px,5vw,48px);
 
-
-.section-copy{
-
-  max-width:650px;
-
-  margin:
-
-    0 auto 35px;
-
-  font-size:14px;
-
-  line-height:1.8;
-
-}
-
-
-.paint-stage{
-
-  position:relative;
-
-  max-width:1000px;
-
-  margin:auto;
-
-  overflow:hidden;
-
-  border-radius:4px;
-
-  background:#f5e6cb;
-
-  box-shadow:
-
-    0 18px 50px
-    rgba(73,48,31,.15);
-
-}
-
-
-/*
-   Image begins hidden.
-*/
-
-.paint-image{
-
-  display:block;
-
-  width:100%;
-
-  height:auto;
-
-  clip-path:
-
-    inset(
-      0 100% 0 0
-    );
-
-}
-
-
-/*
-   More natural paint reveal:
-   multiple stages instead of one simple
-   straight-line reveal.
-*/
-
-.paint-stage.active
-.paint-image{
-
-  animation:
-
-    revealPainting
-    3.7s
-    cubic-bezier(.45,0,.2,1)
-    forwards;
-
-}
-
-
-@keyframes revealPainting{
-
-  0%{
-
-    clip-path:
-
-      inset(
-        0 100% 0 0
-      );
-
-  }
-
-  18%{
-
-    clip-path:
-
-      inset(
-        0 82% 0 0
-      );
-
-  }
-
-  40%{
-
-    clip-path:
-
-      inset(
-        0 58% 0 0
-      );
-
-  }
-
-  67%{
-
-    clip-path:
-
-      inset(
-        0 30% 0 0
-      );
-
-  }
-
-  100%{
-
-    clip-path:
-
-      inset(
-        0 0 0 0
-      );
-
-  }
-
+  font-weight:normal;
 }
 
 
 /* =========================================================
-   REALISTIC BRUSH
-========================================================= */
-
-.brush{
-
-  position:absolute;
-
-  left:-230px;
-
-  top:42%;
-
-  z-index:20;
-
-  width:220px;
-
-  height:60px;
-
-  opacity:0;
-
-  transform:
-
-    rotate(-5deg);
-
-}
-
-
-/* handle */
-
-.brush-handle{
-
-  position:absolute;
-
-  left:0;
-
-  top:20px;
-
-  width:155px;
-
-  height:22px;
-
-  border-radius:
-
-    15px 3px 3px 15px;
-
-  background:
-
-    linear-gradient(
-      #d6a15d,
-      #9a6033
-    );
-
-  box-shadow:
-
-    inset 0 2px 2px
-    rgba(255,255,255,.4);
-
-}
-
-
-/* metal */
-
-.brush-metal{
-
-  position:absolute;
-
-  left:145px;
-
-  top:14px;
-
-  width:43px;
-
-  height:34px;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #9b9b9b,
-      #eee,
-      #989898
-    );
-
-}
-
-
-/* bristles */
-
-.brush-bristles{
-
-  position:absolute;
-
-  left:185px;
-
-  top:10px;
-
-  width:40px;
-
-  height:42px;
-
-  border-radius:
-
-    3px 16px 16px 3px;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #604127,
-      #2e2119
-    );
-
-}
-
-
-/*
-   Actual brush path:
-   left-right with slight vertical movement
-*/
-
-.paint-stage.active
-.brush{
-
-  opacity:1;
-
-  animation:
-
-    paintBrush
-    3.7s
-    cubic-bezier(.43,.05,.2,1)
-    forwards;
-
-}
-
-
-@keyframes paintBrush{
-
-  0%{
-
-    left:-230px;
-
-    top:46%;
-
-    transform:
-
-      rotate(-7deg);
-
-  }
-
-  18%{
-
-    top:27%;
-
-    transform:
-
-      rotate(3deg);
-
-  }
-
-  38%{
-
-    top:62%;
-
-    transform:
-
-      rotate(-4deg);
-
-  }
-
-  58%{
-
-    top:37%;
-
-    transform:
-
-      rotate(5deg);
-
-  }
-
-  77%{
-
-    top:65%;
-
-    transform:
-
-      rotate(-4deg);
-
-  }
-
-  100%{
-
-    left:105%;
-
-    top:38%;
-
-    opacity:0;
-
-    transform:
-
-      rotate(4deg);
-
-  }
-
-}
-
-
-/* =========================================================
-   WEDDING STORY
+   STORY
 ========================================================= */
 
 .story-section{
+  padding:95px 20px;
 
-  position:relative;
-
-  overflow:hidden;
-
-  padding:
-
-    100px 20px;
-
-  background:
-
-    #dbe4d3;
-
+  background:#dfe7d8;
 }
 
-
-.story-box{
-
-  max-width:840px;
+.story-card{
+  max-width:860px;
 
   margin:auto;
 
-  padding:
-
-    60px
-    clamp(
-      25px,
-      7vw,
-      70px
-    );
+  padding:60px clamp(25px,7vw,70px);
 
   text-align:center;
 
-  border:
+  border:1px solid rgba(124,94,64,.25);
 
-    1px solid
-    rgba(139,102,64,.32);
-
-  background:
-
-    rgba(255,250,239,.88);
+  background:rgba(255,250,241,.88);
 
   box-shadow:
-
-    0 18px 50px
-    rgba(55,72,54,.12);
-
+    0 18px 50px rgba(59,72,52,.1);
 }
 
+.story-card p{
+  max-width:700px;
 
-.story-ornament{
-
-  font-size:30px;
-
-  color:var(--gold);
-
-}
-
-
-.story-box h2{
-
-  margin:
-
-    10px 0 25px;
-
-  color:var(--maroon);
-
-  font-size:
-
-    clamp(
-      32px,
-      5vw,
-      48px
-    );
-
-  font-weight:normal;
-
-}
-
-
-.story-box p{
-
-  margin:
-
-    0 auto;
-
-  max-width:680px;
+  margin:24px auto 0;
 
   font-size:15px;
 
   line-height:2;
-
 }
 
 
@@ -1282,163 +580,93 @@ nav a{
 ========================================================= */
 
 .events-section{
-
-  padding:
-
-    95px 20px;
+  padding:95px 20px;
 
   background:#fff8e9;
-
 }
 
-
 .events-grid{
-
   max-width:1100px;
 
-  margin:
-
-    45px auto 0;
+  margin:45px auto 0;
 
   display:grid;
 
-  grid-template-columns:
-
-    repeat(
-      3,
-      1fr
-    );
+  grid-template-columns:repeat(3,1fr);
 
   gap:24px;
-
 }
 
-
-.event{
-
+.event-card{
   overflow:hidden;
 
-  border-radius:5px;
-
-  background:#fff;
+  background:#fffdf8;
 
   box-shadow:
-
-    0 15px 40px
-    rgba(74,48,30,.12);
-
+    0 14px 35px rgba(75,50,30,.1);
 }
 
-
 .event-art{
-
   height:230px;
 
   display:flex;
-
   justify-content:center;
-
   align-items:center;
 
-  font-size:78px;
-
+  font-size:80px;
 }
 
-
-.event:nth-child(1)
-.event-art{
-
+.event-card:nth-child(1) .event-art{
   background:
-
-    linear-gradient(
-      145deg,
-      #e29a9c,
-      #f3c0b8
-    );
-
+    linear-gradient(145deg,#d98790,#f2c0bc);
 }
 
-
-.event:nth-child(2)
-.event-art{
-
+.event-card:nth-child(2) .event-art{
   background:
-
-    linear-gradient(
-      145deg,
-      #f3cc59,
-      #efd67b
-    );
-
+    linear-gradient(145deg,#e8b83d,#f4d878);
 }
 
-
-.event:nth-child(3)
-.event-art{
-
+.event-card:nth-child(3) .event-art{
   background:
-
-    linear-gradient(
-      145deg,
-      #7e9976,
-      #b7c6a6
-    );
-
+    linear-gradient(145deg,#7f9b76,#bfcfac);
 }
-
 
 .event-body{
-
-  padding:28px;
+  padding:30px 24px;
 
   text-align:center;
-
 }
 
-
 .event-date{
+  color:var(--gold);
 
   font:11px Arial,sans-serif;
 
   letter-spacing:4px;
-
-  color:var(--gold);
-
 }
 
+.event-body h3{
+  margin:9px 0 4px;
 
-.event h3{
-
-  margin:
-
-    9px 0 5px;
+  color:var(--maroon);
 
   font-size:28px;
 
   font-weight:normal;
-
-  color:var(--maroon);
-
 }
 
-
-.event-telugu{
-
+.telugu{
   margin-bottom:12px;
 
-  color:#8f594f;
+  color:#8d574e;
 
   font-size:18px;
-
 }
 
-
-.event p{
-
+.event-body p{
   font-size:13px;
 
-  line-height:1.7;
-
+  line-height:1.75;
 }
 
 
@@ -1446,115 +674,66 @@ nav a{
    RITUALS
 ========================================================= */
 
-.ritual-section{
+.rituals-section{
+  padding:95px 20px;
 
-  padding:
+  background:#405b48;
 
-    100px 20px;
-
-  background:#435f4d;
-
-  color:#fff7e8;
-
+  color:#fff5df;
 }
 
-
-.ritual-section
-.section-heading{
-
-  color:#f3c997;
-
+.rituals-section .eyebrow{
+  color:#e6d7b9;
 }
 
-
-.ritual-section
-.eyebrow{
-
-  color:#e7ddbd;
-
+.rituals-section .section-heading{
+  color:#f2cca0;
 }
-
 
 .ritual-grid{
-
   max-width:1100px;
 
-  margin:
-
-    50px auto 0;
+  margin:45px auto 0;
 
   display:grid;
 
-  grid-template-columns:
-
-    repeat(
-      3,
-      1fr
-    );
+  grid-template-columns:repeat(3,1fr);
 
   gap:20px;
-
 }
 
-
 .ritual-card{
-
-  padding:
-
-    32px 26px;
-
-  border:
-
-    1px solid
-    rgba(255,239,204,.25);
+  padding:31px 25px;
 
   text-align:center;
 
-  background:
+  border:1px solid rgba(255,243,216,.25);
 
-    rgba(255,255,255,.055);
-
+  background:rgba(255,255,255,.045);
 }
-
 
 .ritual-icon{
-
   font-size:36px;
-
 }
 
-
 .ritual-card h3{
+  margin:12px 0 5px;
 
-  margin:
-
-    12px 0 5px;
-
-  color:#f3c997;
+  color:#f2cca0;
 
   font-size:20px;
 
   font-weight:normal;
-
 }
 
-
-.ritual-card
-.telugu{
-
-  margin-bottom:12px;
-
-  color:#e7c9ae;
-
+.ritual-card .telugu{
+  color:#e3c5aa;
 }
-
 
 .ritual-card p{
-
   font-size:12px;
 
   line-height:1.8;
-
 }
 
 
@@ -1563,224 +742,174 @@ nav a{
 ========================================================= */
 
 .venue-section{
-
-  padding:
-
-    100px 20px;
+  padding:95px 20px;
 
   text-align:center;
 
   background:
-
-    linear-gradient(
-      #f3dfbf,
-      #fff7e8
-    );
-
+    linear-gradient(#f4e1c2,#fff8e9);
 }
 
-
-.venue-card{
-
+.venue-box{
   max-width:720px;
 
-  margin:
+  margin:40px auto 0;
 
-    40px auto 0;
+  padding:50px 25px;
 
-  padding:
+  border:1px solid #c8a06a;
 
-    50px 25px;
-
-  border:
-
-    1px solid
-    #c9a56d;
-
-  background:
-
-    rgba(255,255,255,.55);
-
+  background:rgba(255,255,255,.55);
 }
 
-
-.venue-card h3{
-
-  margin:
-
-    0 0 10px;
-
-  font-size:34px;
+.venue-box h3{
+  margin:8px 0 10px;
 
   color:var(--maroon);
 
-  font-weight:normal;
+  font-size:35px;
 
+  font-weight:normal;
 }
 
 
 /* =========================================================
-   RSVP
+   RSVP - VERY PROMINENT
 ========================================================= */
 
 .rsvp-section{
-
   position:relative;
 
   overflow:hidden;
 
-  padding:
-
-    110px 20px;
+  padding:110px 20px;
 
   text-align:center;
 
   background:
+    linear-gradient(145deg,#d47b84,#a3434e);
 
-    linear-gradient(
-      145deg,
-      #d9868e,
-      #a34850
-    );
-
-  color:#fff7e8;
-
+  color:#fff8ea;
 }
 
-
 .rsvp-section::before{
-
   content:"❀";
 
   position:absolute;
 
   left:-20px;
-
   bottom:-30px;
 
   font-size:220px;
 
   opacity:.12;
-
 }
 
-
 .rsvp-section::after{
-
   content:"❀";
 
   position:absolute;
 
-  right:-30px;
+  right:-20px;
+  top:-40px;
 
-  top:-50px;
+  font-size:220px;
 
-  font-size:230px;
-
-  opacity:.11;
-
+  opacity:.12;
 }
 
-
-.rsvp-inner{
-
+.rsvp-content{
   position:relative;
 
   z-index:2;
 
-  max-width:700px;
+  max-width:740px;
 
   margin:auto;
-
 }
 
-
-.rsvp-section
-.eyebrow{
-
-  color:#f5dfc4;
-
+.rsvp-section .eyebrow{
+  color:#f3dcca;
 }
-
 
 .rsvp-section h2{
+  margin:10px 0 18px;
 
-  margin:
-
-    10px 0 20px;
-
-  font-size:
-
-    clamp(
-      38px,
-      6vw,
-      58px
-    );
+  font-size:clamp(42px,7vw,64px);
 
   font-weight:normal;
-
 }
 
-
 .rsvp-section p{
-
   font-size:15px;
 
   line-height:1.9;
-
 }
 
-
-.rsvp-button{
-
+.rsvp-main-button{
   display:inline-block;
 
-  margin-top:25px;
+  margin-top:28px;
 
-  padding:
+  min-width:260px;
 
-    16px 38px;
+  padding:17px 40px;
 
   border-radius:40px;
 
-  background:#fff5dc;
+  background:#fff2d5;
 
-  color:#8e3b43;
+  color:#8f3844;
 
   text-decoration:none;
 
-  font-family:Arial,sans-serif;
-
-  font-weight:bold;
-
-  font-size:11px;
+  font:700 13px Arial,sans-serif;
 
   letter-spacing:3px;
 
   box-shadow:
+    0 12px 28px rgba(86,31,36,.24);
 
-    0 8px 25px
-    rgba(78,29,32,.2);
+  animation:rsvpPulse 2s infinite;
+}
 
-  transition:
+@keyframes rsvpPulse{
+  0%,100%{
+    transform:scale(1);
+  }
 
-    transform .25s ease,
-    box-shadow .25s ease;
-
+  50%{
+    transform:scale(1.035);
+  }
 }
 
 
-.rsvp-button:hover{
+/* floating RSVP */
 
-  transform:
+.floating-rsvp{
+  position:fixed;
 
-    translateY(-3px);
+  right:18px;
+  bottom:18px;
+
+  z-index:600;
+
+  padding:14px 20px;
+
+  border-radius:40px;
+
+  background:#913b47;
+
+  color:#fff;
+
+  text-decoration:none;
+
+  font:700 11px Arial,sans-serif;
+
+  letter-spacing:2px;
 
   box-shadow:
-
-    0 13px 28px
-    rgba(78,29,32,.26);
-
+    0 8px 24px rgba(76,31,35,.28);
 }
 
 
@@ -1789,68 +918,46 @@ nav a{
 ========================================================= */
 
 footer{
-
-  padding:
-
-    45px 20px;
+  padding:42px 20px;
 
   text-align:center;
 
-  background:#31483a;
+  background:#304638;
 
-  color:#f7e4c4;
-
+  color:#f2dfbd;
 }
 
-
-.footer-name{
-
+footer .name{
   margin-bottom:10px;
 
   font-size:25px;
-
-  color:#f2c991;
-
 }
 
-
-.footer-small{
-
+footer .small{
   font:10px Arial,sans-serif;
 
   letter-spacing:4px;
-
 }
 
 
 /* =========================================================
-   SCROLL ANIMATION
+   SCROLL REVEAL
 ========================================================= */
 
 .reveal{
-
   opacity:0;
 
-  transform:
-
-    translateY(40px);
+  transform:translateY(35px);
 
   transition:
-
-    opacity .9s ease,
-    transform .9s ease;
-
+    opacity .8s ease,
+    transform .8s ease;
 }
 
-
 .reveal.visible{
-
   opacity:1;
 
-  transform:
-
-    translateY(0);
-
+  transform:translateY(0);
 }
 
 
@@ -1860,80 +967,49 @@ footer{
 
 @media(max-width:760px){
 
-  .envelope-wrapper{
-
+  .envelope-stage{
     height:290px;
-
-  }
-
-  .invite-card{
-
-    height:450px;
-
   }
 
   .seal{
+    width:82px;
+    height:82px;
 
-    width:80px;
-
-    height:80px;
-
-    font-size:19px;
-
+    font-size:20px;
   }
 
   .tap-text{
+    bottom:34px;
 
-    bottom:35px;
-
-    font-size:10px;
-
+    font-size:9px;
   }
 
   nav{
-
     justify-content:flex-start;
 
-    gap:24px;
-
+    gap:22px;
   }
 
   .events-grid{
-
     grid-template-columns:1fr;
-
   }
 
   .ritual-grid{
-
     grid-template-columns:1fr;
-
   }
 
-  .paint-section,
+  .hero{
+    min-height:88vh;
+  }
+
   .story-section,
   .events-section,
-  .ritual-section,
+  .rituals-section,
   .venue-section,
   .rsvp-section{
-
     padding-top:70px;
-
     padding-bottom:70px;
-
   }
-
-}
-
-
-@media(max-height:720px){
-
-  .envelope-wrapper{
-
-    transform:scale(.8);
-
-  }
-
 }
 
 </style>
@@ -1943,74 +1019,40 @@ footer{
 <body class="locked">
 
 
-<!-- ======================================================
-     ENVELOPE OPENING
-====================================================== -->
+<!-- =========================================================
+     CLOSED ENVELOPE OPENING
+========================================================= -->
 
 <div id="openingScreen">
 
   <div
-    class="envelope-wrapper"
-    id="envelope"
+    class="envelope-stage"
+    id="envelopeStage"
   >
 
     <div class="envelope">
 
+      <div class="envelope-lining"></div>
 
-      <div class="invite-card">
+      <div class="envelope-bottom"></div>
 
-        <div class="invite-preview">
+      <div class="envelope-front-left"></div>
 
-          <div class="preview-small">
-
-            A LITTLE GLIMPSE
-            OF OUR FOREVER
-
-          </div>
-
-
-          <h1 class="preview-name">
-
-            Chaitanya
-            & Mounisha
-
-          </h1>
-
-
-          <div class="preview-sub">
-
-            ARE GETTING MARRIED
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="envelope-front"></div>
-
+      <div class="envelope-front-right"></div>
 
       <div class="envelope-flap"></div>
-
 
       <button
         class="seal"
         id="seal"
         aria-label="Open invitation"
       >
-
         C&M
-
       </button>
 
-
       <div class="tap-text">
-
         TAP THE SEAL TO OPEN
-
       </div>
-
 
     </div>
 
@@ -2020,9 +1062,9 @@ footer{
 
 
 
-<!-- ======================================================
+<!-- =========================================================
      WEBSITE
-====================================================== -->
+========================================================= -->
 
 <main id="website">
 
@@ -2051,17 +1093,21 @@ RITUALS
 VENUE
 </a>
 
-<a href="#rsvp">
+<a
+  class="rsvp-nav"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfNjEPCM0oNA_id6ouyNqeBBR3xuE6Ugdp3LL8tApKGIe83mw/viewform?usp=dialog"
+  target="_blank"
+  rel="noopener noreferrer"
+>
 RSVP
 </a>
 
 </nav>
 
 
-
-<!-- ======================================================
+<!-- =========================================================
      HERO
-====================================================== -->
+========================================================= -->
 
 <section
   class="hero"
@@ -2070,249 +1116,143 @@ RSVP
 
 <div class="hero-inner">
 
-
 <div class="hero-small">
-
 A LITTLE GLIMPSE OF OUR FOREVER
-
 </div>
 
 
 <h1>
-
 Chaitanya & Mounisha
-
 </h1>
 
 
 <div class="hero-date">
-
 OCTOBER 23 • 24 • 25
-
 </div>
 
 
 <div class="hero-divider"></div>
 
 
-<div class="hero-small">
+<div class="hero-text">
 
-ARE GETTING MARRIED
-
-</div>
-
-
-<div class="hero-scroll">
-
-↓ SCROLL TO CELEBRATE WITH US ↓
+With the blessings of our families,
+we invite you to celebrate
+three beautiful days of love,
+tradition and togetherness.
 
 </div>
 
+
+<a
+  class="hero-rsvp"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfNjEPCM0oNA_id6ouyNqeBBR3xuE6Ugdp3LL8tApKGIe83mw/viewform?usp=dialog"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+♥ RSVP NOW
+</a>
 
 </div>
 
 </section>
 
 
-
-<!-- ======================================================
-     PAINTING / IMAGE REVEAL
-====================================================== -->
-
-<section
-  class="paint-section reveal"
->
-
-<div class="eyebrow">
-
-A CELEBRATION OF TRADITION
-
-</div>
-
-
-<h2 class="section-heading">
-
-Painted With Love
-
-</h2>
-
-
-<p class="section-copy">
-
-As our families come together,
-each tradition becomes a beautiful
-brushstroke in the story of our wedding.
-
-</p>
-
-
-
-<div
-  class="paint-stage"
-  id="paintStage"
->
-
-
-<!--
-IMPORTANT:
-
-Upload your image to GitHub and name it:
-
-haldi.png
--->
-
-
-<img
-  src="haldi.png"
-  class="paint-image"
-  alt="Telugu wedding ceremony"
-/>
-
-
-<div class="brush">
-
-  <div class="brush-handle"></div>
-
-  <div class="brush-metal"></div>
-
-  <div class="brush-bristles"></div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- ======================================================
-     OUR STORY
-====================================================== -->
+<!-- =========================================================
+     STORY
+========================================================= -->
 
 <section
   class="story-section reveal"
   id="story"
 >
 
+<div class="story-card">
 
-<div class="story-box">
-
-
-<div class="story-ornament">
-
-✦ ❀ ✦
-
+<div class="eyebrow">
+TWO JOURNEYS • ONE FOREVER
 </div>
 
-
-<h2>
-
+<h2 class="section-heading">
 Our Wedding Story
-
 </h2>
 
 
 <p>
 
-What began as two individual journeys
-has grown into one beautiful story.
+Somewhere between conversations,
+laughter and shared dreams,
+two separate journeys
+became one.
 
 <br><br>
 
-Surrounded by the love of our families,
-we are beginning a new chapter together —
-one filled with laughter, friendship,
-traditions and countless memories yet
-to be written.
+Now, surrounded by the people
+who mean the most to us,
+we are beginning a new chapter together.
 
 <br><br>
 
 With grateful hearts,
-we invite you to be part of
-the celebrations as we become
-husband and wife.
+we invite you to be part of our
+wedding celebrations and
+the beginning of our forever.
 
 </p>
-
 
 </div>
 
 </section>
 
 
-
-<!-- ======================================================
+<!-- =========================================================
      EVENTS
-====================================================== -->
+========================================================= -->
 
 <section
   class="events-section reveal"
   id="events"
 >
 
-
 <div style="text-align:center">
 
 <div class="eyebrow">
-
-JOIN THE CELEBRATION
-
+JOIN OUR CELEBRATION
 </div>
 
 <h2 class="section-heading">
-
-Our Wedding Events
-
+Wedding Events
 </h2>
 
 </div>
 
 
-
 <div class="events-grid">
 
 
-<!-- SANGEETH -->
-
-<div class="event">
+<div class="event-card">
 
 <div class="event-art">
-
 💃🏽
-
 </div>
-
 
 <div class="event-body">
 
 <div class="event-date">
-
 OCTOBER 23
-
 </div>
 
-
 <h3>
-
 Sangeeth
-
 </h3>
 
-
-<div class="event-telugu">
-
+<div class="telugu">
 సంగీత్
-
 </div>
 
-
 <p>
-
-An evening filled with
-music, dancing,
-laughter and celebration.
-
+An evening of music,
+dance, laughter and togetherness.
 </p>
 
 </div>
@@ -2320,48 +1260,30 @@ laughter and celebration.
 </div>
 
 
-
-<!-- HALDI -->
-
-<div class="event">
+<div class="event-card">
 
 <div class="event-art">
-
 🌼
-
 </div>
-
 
 <div class="event-body">
 
 <div class="event-date">
-
 OCTOBER 24
-
 </div>
-
 
 <h3>
-
 Haldi
-
 </h3>
 
-
-<div class="event-telugu">
-
+<div class="telugu">
 పసుపు వేడుక
-
 </div>
 
-
 <p>
-
-A joyful celebration
-of turmeric,
-blessings and
-bright beginnings.
-
+A bright celebration
+of blessings, turmeric,
+joy and beautiful beginnings.
 </p>
 
 </div>
@@ -2369,48 +1291,30 @@ bright beginnings.
 </div>
 
 
-
-<!-- WEDDING -->
-
-<div class="event">
+<div class="event-card">
 
 <div class="event-art">
-
 🪷
-
 </div>
-
 
 <div class="event-body">
 
 <div class="event-date">
-
 OCTOBER 25
-
 </div>
-
 
 <h3>
-
 Wedding
-
 </h3>
 
-
-<div class="event-telugu">
-
+<div class="telugu">
 పెళ్లి
-
 </div>
 
-
 <p>
-
-Two families,
-two hearts
-and one beautiful
-forever.
-
+Two hearts and two families
+come together for
+one beautiful forever.
 </p>
 
 </div>
@@ -2423,34 +1327,26 @@ forever.
 </section>
 
 
-
-<!-- ======================================================
+<!-- =========================================================
      RITUALS
-====================================================== -->
+========================================================= -->
 
 <section
-  class="ritual-section reveal"
+  class="rituals-section reveal"
   id="rituals"
 >
-
 
 <div style="text-align:center">
 
 <div class="eyebrow">
-
 TIMELESS TRADITIONS
-
 </div>
 
-
 <h2 class="section-heading">
-
 Sacred Telugu Wedding Rituals
-
 </h2>
 
 </div>
-
 
 
 <div class="ritual-grid">
@@ -2459,197 +1355,136 @@ Sacred Telugu Wedding Rituals
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 🪔
-
 </div>
 
 <h3>
-
 Gowri Puja
-
 </h3>
 
 <div class="telugu">
-
 గౌరీ పూజ
-
 </div>
 
 <p>
-
-The bride seeks
-Goddess Gowri's blessings
+The bride seeks blessings
 for harmony, happiness
 and a beautiful married life.
-
 </p>
 
 </div>
 
 
-
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 🌿
-
 </div>
 
 <h3>
-
 Jeelakarra Bellam
-
 </h3>
 
 <div class="telugu">
-
 జీలకర్ర బెల్లం
-
 </div>
 
 <p>
-
-Cumin and jaggery
-symbolize two lives
-coming together and
-remaining united through
-life's sweet and challenging moments.
-
+Cumin and jaggery symbolize
+two lives becoming inseparable
+through all of life's moments.
 </p>
 
 </div>
 
 
-
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 📿
-
 </div>
 
 <h3>
-
 Mangalyadharanam
-
 </h3>
 
 <div class="telugu">
-
 మాంగల్యధారణ
-
 </div>
 
 <p>
-
-The tying of the
-mangalsutra signifies
-love, commitment
-and the beginning
-of married life.
-
+The mangalsutra represents
+commitment, companionship
+and the marital bond.
 </p>
 
 </div>
 
 
-
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 🌾
-
 </div>
 
 <h3>
-
 Talambralu
-
 </h3>
 
 <div class="telugu">
-
 తలంబ్రాలు
-
 </div>
 
 <p>
-
-The couple showers
-sacred rice over one another,
-symbolizing prosperity,
-joy and abundance.
-
+The sacred rice shower
+symbolizes joy, prosperity,
+abundance and playfulness.
 </p>
 
 </div>
 
 
-
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 👣
-
 </div>
 
 <h3>
-
 Saptapadi
-
 </h3>
 
 <div class="telugu">
-
 సప్తపది
-
 </div>
 
 <p>
-
 Seven sacred steps represent
-seven promises for
-companionship, prosperity,
-family and lifelong partnership.
-
+seven promises for a shared
+and meaningful life together.
 </p>
 
 </div>
 
 
-
 <div class="ritual-card">
 
 <div class="ritual-icon">
-
 🤲
-
 </div>
 
 <h3>
-
 Kanyadanam
-
 </h3>
 
 <div class="telugu">
-
 కన్యాదానం
-
 </div>
 
 <p>
-
-A meaningful family blessing
-that represents the joining
-of two families and
-the beginning of a new chapter.
-
+A family blessing representing
+love, trust and the joining
+of two families.
 </p>
 
 </div>
@@ -2660,110 +1495,77 @@ the beginning of a new chapter.
 </section>
 
 
-
-<!-- ======================================================
+<!-- =========================================================
      VENUE
-====================================================== -->
+========================================================= -->
 
 <section
   class="venue-section reveal"
   id="venue"
 >
 
-
 <div class="eyebrow">
-
-WHERE WE CELEBRATE
-
+THE CELEBRATION
 </div>
 
-
 <h2 class="section-heading">
-
-The Venue
-
+Jordan Ranch
 </h2>
 
 
-<div class="venue-card">
+<div class="venue-box">
 
-
-<div style="font-size:45px">
-
+<div style="font-size:48px">
 🌿
-
 </div>
 
-
 <h3>
-
 Jordan Ranch
-
 </h3>
 
-
 <p>
-
 Texas
-
 </p>
 
+<p style="font-size:13px;line-height:1.8">
 
-<p
-style="
-font-size:13px;
-line-height:1.8;
-"
->
-
-Join us among beautiful
-Texas scenery as we celebrate
-three unforgettable days
-with our family and friends.
+Join us for a beautiful
+three-day celebration
+surrounded by nature,
+family and friends.
 
 </p>
-
 
 </div>
 
 </section>
 
 
-
-<!-- ======================================================
+<!-- =========================================================
      RSVP
-====================================================== -->
+========================================================= -->
 
 <section
   class="rsvp-section reveal"
   id="rsvp"
 >
 
-
-<div class="rsvp-inner">
-
+<div class="rsvp-content">
 
 <div class="eyebrow">
-
 WE WOULD LOVE TO CELEBRATE WITH YOU
-
 </div>
 
-
 <h2>
-
-Will You Join Us?
-
+RSVP
 </h2>
-
 
 <p>
 
 Your presence would make
-our wedding celebration
-even more meaningful.
+our celebration even more special.
 
-<br>
+<br><br>
 
 Please let us know
 if you'll be joining us.
@@ -2772,7 +1574,7 @@ if you'll be joining us.
 
 
 <a
-  class="rsvp-button"
+  class="rsvp-main-button"
 
   href="https://docs.google.com/forms/d/e/1FAIpQLSfNjEPCM0oNA_id6ouyNqeBBR3xuE6Ugdp3LL8tApKGIe83mw/viewform?usp=dialog"
 
@@ -2780,36 +1582,25 @@ if you'll be joining us.
 
   rel="noopener noreferrer"
 >
-
-♥ RSVP HERE
-
+♥ RSVP NOW
 </a>
-
 
 </div>
 
 </section>
 
 
-
 <footer>
 
-
-<div class="footer-name">
-
+<div class="name">
 Chaitanya & Mounisha
-
 </div>
 
-
-<div class="footer-small">
-
+<div class="small">
 OCTOBER 23 • 24 • 25
 &nbsp; ✦ &nbsp;
 WITH LOVE
-
 </div>
-
 
 </footer>
 
@@ -2817,123 +1608,103 @@ WITH LOVE
 </main>
 
 
+<!-- FLOATING RSVP -->
+
+<a
+  class="floating-rsvp"
+
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfNjEPCM0oNA_id6ouyNqeBBR3xuE6Ugdp3LL8tApKGIe83mw/viewform?usp=dialog"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+>
+♥ RSVP
+</a>
+
 
 <script>
 
-
 /* =========================================================
-   ENVELOPE OPENING
+   ENVELOPE OPEN
 ========================================================= */
 
 const seal =
-document.getElementById(
-  "seal"
-);
+document.getElementById("seal");
 
-
-const envelope =
-document.getElementById(
-  "envelope"
-);
-
+const envelopeStage =
+document.getElementById("envelopeStage");
 
 const openingScreen =
-document.getElementById(
-  "openingScreen"
-);
-
+document.getElementById("openingScreen");
 
 const home =
-document.getElementById(
-  "home"
-);
+document.getElementById("home");
 
-
-let invitationOpened =
+let alreadyOpened =
 false;
 
 
 seal.addEventListener(
-  "click",
+"click",
+function(){
+
+  if(alreadyOpened){
+    return;
+  }
+
+  alreadyOpened = true;
+
+
+  /* flap opens */
+
+  envelopeStage.classList.add(
+    "open"
+  );
+
+
+  /*
+  after envelope opens,
+  reveal website
+  */
+
+  setTimeout(
   function(){
 
-    if(invitationOpened){
-      return;
-    }
-
-
-    invitationOpened =
-    true;
-
-
-    /*
-    1. Break seal + open flap
-    */
-
-    envelope.classList.add(
-      "open"
+    document.body.classList.remove(
+      "locked"
     );
 
-
-    /*
-    2. Allow scrolling while
-       invitation rises
-    */
-
-    setTimeout(
-      function(){
-
-        document.body.classList.remove(
-          "locked"
-        );
-
-      },
-      1500
+    openingScreen.classList.add(
+      "hide"
     );
 
-
-    /*
-    3. Fade envelope away
-    */
-
-    setTimeout(
-      function(){
-
-        openingScreen.classList.add(
-          "hide"
-        );
-
-      },
-      2450
-    );
+  },
+  1250
+  );
 
 
-    /*
-    4. Smoothly position user
-       at beginning of invitation
-    */
+  /*
+  smooth placement on website
+  */
 
-    setTimeout(
-      function(){
+  setTimeout(
+  function(){
 
-        home.scrollIntoView({
+    home.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
 
-          behavior:"smooth",
+  },
+  1450
+  );
 
-          block:"start"
-
-        });
-
-      },
-      2550
-    );
-
-  }
-);
+});
 
 
 /* =========================================================
-   SCROLL REVEAL
+   SECTION REVEAL
 ========================================================= */
 
 const revealItems =
@@ -2942,7 +1713,7 @@ document.querySelectorAll(
 );
 
 
-const revealObserver =
+const observer =
 new IntersectionObserver(
 
 function(entries){
@@ -2972,7 +1743,7 @@ threshold:.12
 revealItems.forEach(
 function(item){
 
-revealObserver.observe(
+observer.observe(
   item
 );
 
@@ -2980,70 +1751,7 @@ revealObserver.observe(
 
 
 /* =========================================================
-   PAINTBRUSH IMAGE REVEAL
-========================================================= */
-
-const paintStage =
-document.getElementById(
-  "paintStage"
-);
-
-
-let paintingPlayed =
-false;
-
-
-const paintObserver =
-new IntersectionObserver(
-
-function(entries){
-
-entries.forEach(
-function(entry){
-
-if(
-  entry.isIntersecting &&
-  !paintingPlayed
-){
-
-paintingPlayed =
-true;
-
-
-setTimeout(
-function(){
-
-paintStage.classList.add(
-  "active"
-);
-
-},
-300
-);
-
-
-paintObserver.disconnect();
-
-}
-
-});
-
-},
-
-{
-threshold:.35
-}
-
-);
-
-
-paintObserver.observe(
-  paintStage
-);
-
-
-/* =========================================================
-   INTERNAL NAVIGATION
+   SMOOTH INTERNAL LINKS
 ========================================================= */
 
 document
@@ -3062,7 +1770,6 @@ this.getAttribute(
   "href"
 );
 
-
 if(
   !id ||
   id === "#"
@@ -3070,24 +1777,18 @@ if(
   return;
 }
 
-
 const target =
 document.querySelector(
   id
 );
 
-
 if(target){
 
 event.preventDefault();
 
-
 target.scrollIntoView({
-
-behavior:"smooth",
-
-block:"start"
-
+  behavior:"smooth",
+  block:"start"
 });
 
 }
@@ -3096,7 +1797,6 @@ block:"start"
 );
 
 });
-
 
 </script>
 
