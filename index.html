@@ -33,14 +33,9 @@ html{
 body{
   margin:0;
   overflow-x:hidden;
-
   background:#fff7ea;
   color:#4d4037;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family:Georgia,"Times New Roman",serif;
 }
 
 body.locked{
@@ -48,27 +43,18 @@ body.locked{
 }
 
 :root{
-
   --cream:#fff7ea;
   --cream-dark:#f4dfbd;
-
   --paper:#fffaf1;
-
   --green:#46624d;
   --green-dark:#304638;
-
   --sage:#dce7d8;
-
   --maroon:#963d49;
   --maroon-dark:#762e38;
-
   --pink:#d97883;
   --pink-soft:#f4c7c0;
-
   --gold:#c79a4d;
-
   --yellow:#e9bd45;
-
 }
 
 
@@ -77,16 +63,12 @@ body.locked{
 ========================================================= */
 
 #openingScreen{
-
   position:fixed;
   inset:0;
-
   z-index:9999;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   padding:20px;
 
   background:
@@ -105,16 +87,12 @@ body.locked{
   transition:
     opacity .75s ease,
     visibility .75s ease;
-
 }
 
 #openingScreen.hide{
-
   opacity:0;
   visibility:hidden;
-
   pointer-events:none;
-
 }
 
 
@@ -123,23 +101,16 @@ body.locked{
 ========================================================= */
 
 .envelope-stage{
-
   position:relative;
-
   width:min(88vw,680px);
   height:420px;
-
   perspective:1600px;
-
 }
 
 .envelope{
-
   position:absolute;
   inset:0;
-
   overflow:hidden;
-
   border-radius:5px;
 
   background:
@@ -152,63 +123,34 @@ body.locked{
   box-shadow:
     0 30px 65px
     rgba(72,43,22,.27);
-
 }
-
-
-/* lower envelope folds */
 
 .envelope-front-left,
 .envelope-front-right{
-
   position:absolute;
   bottom:0;
-
   width:61%;
   height:68%;
-
   z-index:5;
-
   background:#c59a54;
-
 }
 
 .envelope-front-left{
-
   left:0;
-
-  clip-path:
-    polygon(
-      0 0,
-      100% 100%,
-      0 100%
-    );
-
+  clip-path:polygon(0 0,100% 100%,0 100%);
 }
 
 .envelope-front-right{
-
   right:0;
-
-  clip-path:
-    polygon(
-      100% 0,
-      100% 100%,
-      0 100%
-    );
-
+  clip-path:polygon(100% 0,100% 100%,0 100%);
 }
 
 .envelope-bottom{
-
   position:absolute;
-
   left:0;
   right:0;
   bottom:0;
-
   height:56%;
-
   z-index:4;
 
   background:
@@ -223,24 +165,15 @@ body.locked{
       50% 0,
       100% 100%
     );
-
 }
 
-
-/* envelope flap */
-
 .envelope-flap{
-
   position:absolute;
-
   top:0;
   left:0;
   right:0;
-
   height:68%;
-
   z-index:8;
-
   transform-origin:top;
 
   background:
@@ -259,15 +192,11 @@ body.locked{
   transition:
     transform 1s
     cubic-bezier(.22,.78,.2,1);
-
 }
 
 .envelope-stage.open
 .envelope-flap{
-
-  transform:
-    rotateX(180deg);
-
+  transform:rotateX(180deg);
 }
 
 
@@ -276,18 +205,10 @@ body.locked{
 ========================================================= */
 
 .seal{
-
   position:absolute;
-
   left:50%;
   top:48%;
-
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
-
+  transform:translate(-50%,-50%);
   z-index:12;
 
   width:100px;
@@ -295,18 +216,13 @@ body.locked{
 
   border:0;
   border-radius:50%;
-
   cursor:pointer;
 
   color:#f5d89d;
 
-  font-family:
-    Georgia,
-    serif;
-
+  font-family:Georgia,serif;
   font-size:24px;
   font-weight:bold;
-
   letter-spacing:2px;
 
   background:
@@ -319,115 +235,62 @@ body.locked{
 
   box-shadow:
     0 6px 0 #522129,
-    0 13px 28px
-    rgba(70,30,31,.36),
-    inset 0 0 0 5px
-    rgba(240,185,120,.35);
-
+    0 13px 28px rgba(70,30,31,.36),
+    inset 0 0 0 5px rgba(240,185,120,.35);
 }
 
 .seal::before{
-
   content:"";
-
   position:absolute;
-
   inset:12px;
-
   border-radius:50%;
-
-  border:
-    1px solid
-    #e8c785;
-
+  border:1px solid #e8c785;
 }
 
 .envelope-stage.open
 .seal{
-
-  animation:
-    sealOpen
-    .5s forwards;
-
+  animation:sealOpen .5s forwards;
 }
 
 @keyframes sealOpen{
 
   0%{
-
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(1);
-
+    transform:translate(-50%,-50%) scale(1);
     opacity:1;
-
   }
 
   50%{
-
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(1.08);
-
+    transform:translate(-50%,-50%) scale(1.08);
   }
 
   100%{
-
     transform:
-      translate(
-        -50%,
-        18px
-      )
+      translate(-50%,18px)
       scale(.55)
       rotate(16deg);
-
     opacity:0;
-
   }
-
 }
 
-
-/* tap instruction */
-
 .tap-text{
-
   position:absolute;
-
   left:0;
   right:0;
-
   bottom:54px;
-
   z-index:10;
 
   text-align:center;
-
   color:#5e4c3e;
 
-  font:
-    11px
-    Arial,
-    sans-serif;
-
+  font:11px Arial,sans-serif;
   letter-spacing:4px;
 
-  transition:
-    opacity .3s ease;
-
+  transition:opacity .3s ease;
 }
 
 .envelope-stage.open
 .tap-text{
-
   opacity:0;
-
 }
 
 
@@ -436,67 +299,39 @@ body.locked{
 ========================================================= */
 
 nav{
-
   position:sticky;
   top:0;
-
   z-index:500;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  gap:27px;
-
-  padding:
-    16px 15px;
+  gap:24px;
+  padding:16px 15px;
 
   overflow-x:auto;
-
   white-space:nowrap;
 
-  background:
-    rgba(
-      61,
-      89,
-      70,
-      .98
-    );
+  background:rgba(61,89,70,.98);
 
   box-shadow:
-    0 3px 12px
-    rgba(0,0,0,.09);
-
+    0 3px 12px rgba(0,0,0,.09);
 }
 
 nav a{
-
   color:#fff3dc;
-
   text-decoration:none;
-
-  font:
-    10px
-    Arial,
-    sans-serif;
-
-  letter-spacing:2.5px;
-
+  font:10px Arial,sans-serif;
+  letter-spacing:2.4px;
 }
 
 nav .rsvp-nav{
-
-  padding:
-    9px 17px;
-
+  padding:9px 17px;
   border-radius:25px;
-
   background:#f4d69f;
-
   color:#7c3440;
-
   font-weight:bold;
-
 }
 
 
@@ -505,20 +340,15 @@ nav .rsvp-nav{
 ========================================================= */
 
 .flower-garland{
-
   position:absolute;
-
   top:0;
-
   z-index:3;
 
   display:flex;
   flex-direction:column;
-
   align-items:center;
 
   pointer-events:none;
-
 }
 
 .flower-garland.left{
@@ -530,46 +360,27 @@ nav .rsvp-nav{
 }
 
 .flower-garland span{
-
   margin-top:-5px;
-
   font-size:25px;
-
   line-height:24px;
-
 }
 
 .banana{
-
   position:absolute;
-
   z-index:1;
-
   bottom:-20px;
-
   font-size:120px;
-
   opacity:.78;
-
 }
 
 .banana.left{
-
   left:-30px;
-
-  transform:
-    rotate(-17deg);
-
+  transform:rotate(-17deg);
 }
 
 .banana.right{
-
   right:-30px;
-
-  transform:
-    scaleX(-1)
-    rotate(-17deg);
-
+  transform:scaleX(-1) rotate(-17deg);
 }
 
 
@@ -578,71 +389,49 @@ nav .rsvp-nav{
 ========================================================= */
 
 .hero{
-
   position:relative;
-
   min-height:91vh;
-
   overflow:hidden;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  padding:
-    95px 20px;
-
+  padding:95px 20px;
   text-align:center;
 
   background:
-
     radial-gradient(
       circle at 12% 22%,
       rgba(210,99,113,.17)
       0 8%,
       transparent 9%
     ),
-
     radial-gradient(
       circle at 88% 26%,
       rgba(94,125,88,.18)
       0 9%,
       transparent 10%
     ),
-
     linear-gradient(
       #fff8eb,
       #f2dfbe
     );
-
 }
 
 .hero-inner{
-
   position:relative;
-
   z-index:4;
-
   max-width:850px;
-
 }
 
 .hero-small{
-
-  font:
-    10px
-    Arial,
-    sans-serif;
-
+  font:10px Arial,sans-serif;
   letter-spacing:5px;
-
 }
 
 .hero h1{
-
-  margin:
-    15px 0 7px;
-
+  margin:15px 0 7px;
   color:var(--maroon);
 
   font-family:
@@ -658,28 +447,19 @@ nav .rsvp-nav{
     );
 
   font-weight:normal;
-
 }
 
 .hero-date{
-
   margin-top:18px;
-
   color:#68574d;
-
   font-size:14px;
-
   letter-spacing:6px;
-
 }
 
 .divider{
-
   width:220px;
   height:1px;
-
-  margin:
-    30px auto;
+  margin:30px auto;
 
   background:
     linear-gradient(
@@ -688,51 +468,32 @@ nav .rsvp-nav{
       var(--gold),
       transparent
     );
-
 }
 
 .hero p{
-
   max-width:630px;
-
   margin:auto;
-
   font-size:15px;
-
   line-height:1.9;
-
 }
 
 .primary-button{
-
   display:inline-block;
-
   margin-top:31px;
-
-  padding:
-    15px 31px;
-
+  padding:15px 31px;
   border-radius:30px;
 
-  background:
-    var(--maroon);
+  background:var(--maroon);
 
   color:white;
-
   text-decoration:none;
 
-  font:
-    700
-    11px
-    Arial,
-    sans-serif;
-
+  font:700 11px Arial,sans-serif;
   letter-spacing:3px;
 
   box-shadow:
     0 10px 25px
     rgba(115,45,53,.22);
-
 }
 
 
@@ -741,26 +502,15 @@ nav .rsvp-nav{
 ========================================================= */
 
 .eyebrow{
-
   margin-bottom:9px;
-
   color:#816d5c;
-
-  font:
-    10px
-    Arial,
-    sans-serif;
-
+  font:10px Arial,sans-serif;
   letter-spacing:4px;
-
 }
 
 .section-title{
-
   margin:0;
-
-  color:
-    var(--maroon);
+  color:var(--maroon);
 
   font-size:
     clamp(
@@ -770,7 +520,6 @@ nav .rsvp-nav{
     );
 
   font-weight:normal;
-
 }
 
 
@@ -779,26 +528,17 @@ nav .rsvp-nav{
 ========================================================= */
 
 .story-section{
-
   position:relative;
-
   overflow:hidden;
-
-  padding:
-    100px 20px;
-
-  background:
-    var(--sage);
-
+  padding:100px 20px;
+  background:var(--sage);
 }
 
 .story-card{
-
   position:relative;
   z-index:3;
 
   max-width:850px;
-
   margin:auto;
 
   padding:
@@ -813,38 +553,21 @@ nav .rsvp-nav{
 
   border:
     1px solid
-    rgba(
-      119,
-      91,
-      65,
-      .23
-    );
+    rgba(119,91,65,.23);
 
   background:
-    rgba(
-      255,
-      250,
-      241,
-      .9
-    );
+    rgba(255,250,241,.9);
 
   box-shadow:
     0 18px 50px
     rgba(56,71,51,.1);
-
 }
 
 .story-card p{
-
-  margin:
-    23px auto 0;
-
+  margin:23px auto 0;
   max-width:700px;
-
   font-size:15px;
-
   line-height:2;
-
 }
 
 
@@ -853,195 +576,126 @@ nav .rsvp-nav{
 ========================================================= */
 
 .events-section{
-
-  padding:
-    95px 20px;
-
+  padding:95px 20px;
   background:#fff8e9;
-
 }
 
 .events-header{
-
   text-align:center;
-
 }
 
 .events-grid{
-
   max-width:1100px;
-
-  margin:
-    45px auto 0;
+  margin:45px auto 0;
 
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
+  grid-template-columns:repeat(3,1fr);
   gap:24px;
-
 }
 
 .event-card{
-
   overflow:hidden;
-
   background:#fffdfa;
 
   box-shadow:
     0 14px 35px
     rgba(74,48,28,.1);
-
 }
 
 .event-top{
-
   height:220px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 
   font-size:75px;
-
 }
 
 .event-card:nth-child(1)
 .event-top{
-
   background:
     linear-gradient(
       145deg,
       #db8791,
       #f2c3bd
     );
-
 }
 
 .event-card:nth-child(2)
 .event-top{
-
   background:
     linear-gradient(
       145deg,
       #e8b640,
       #f4db78
     );
-
 }
 
 .event-card:nth-child(3)
 .event-top{
-
   background:
     linear-gradient(
       145deg,
       #7c9774,
       #bdccad
     );
-
 }
 
 .event-content{
-
-  padding:
-    30px 23px;
-
+  padding:30px 23px;
   text-align:center;
-
 }
 
 .event-date{
-
-  color:
-    var(--gold);
-
-  font:
-    11px
-    Arial,
-    sans-serif;
-
+  color:var(--gold);
+  font:11px Arial,sans-serif;
   letter-spacing:4px;
-
 }
 
 .event-content h3{
-
-  margin:
-    9px 0 4px;
-
-  color:
-    var(--maroon);
-
+  margin:9px 0 4px;
+  color:var(--maroon);
   font-size:29px;
-
   font-weight:normal;
-
 }
 
 .telugu{
-
   margin-bottom:12px;
-
   color:#965d52;
-
   font-size:18px;
-
 }
 
 .event-content p{
-
   font-size:13px;
-
   line-height:1.7;
-
 }
 
 
 /* =========================================================
-   RITUAL INTRO PLACEHOLDER
-   IMAGE CAN BE ADDED LATER
+   RITUAL IMAGE PLACEHOLDER
 ========================================================= */
 
 .ritual-intro{
-
-  padding:
-    90px 20px;
-
+  padding:90px 20px;
   text-align:center;
-
-  background:
-    #f0e3c5;
-
+  background:#f0e3c5;
 }
 
 .ritual-placeholder{
-
   max-width:950px;
-
-  margin:
-    38px auto 0;
-
+  margin:38px auto 0;
   min-height:290px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 
   padding:40px;
 
-  border:
-    1px solid
-    #cfad76;
+  border:1px solid #cfad76;
 
   background:
-
     repeating-linear-gradient(
       45deg,
       #fff9ec,
@@ -1051,11 +705,8 @@ nav .rsvp-nav{
     );
 
   color:#927556;
-
   font-style:italic;
-
   line-height:1.8;
-
 }
 
 
@@ -1064,111 +715,62 @@ nav .rsvp-nav{
 ========================================================= */
 
 .rituals{
-
-  padding:
-    95px 20px;
-
-  background:
-    var(--green);
-
+  padding:95px 20px;
+  background:var(--green);
   color:#fff5df;
-
 }
 
 .ritual-header{
-
   text-align:center;
-
 }
 
 .rituals .eyebrow{
-
   color:#e5d6b8;
-
 }
 
 .rituals .section-title{
-
   color:#f1cca0;
-
 }
 
 .ritual-grid{
-
   max-width:1100px;
-
-  margin:
-    46px auto 0;
+  margin:46px auto 0;
 
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
+  grid-template-columns:repeat(3,1fr);
   gap:20px;
-
 }
 
 .ritual-card{
-
-  padding:
-    32px 25px;
-
+  padding:32px 25px;
   text-align:center;
 
   border:
     1px solid
-    rgba(
-      255,
-      244,
-      216,
-      .25
-    );
+    rgba(255,244,216,.25);
 
   background:
-    rgba(
-      255,
-      255,
-      255,
-      .045
-    );
-
+    rgba(255,255,255,.045);
 }
 
 .ritual-icon{
-
   font-size:34px;
-
 }
 
 .ritual-card h3{
-
-  margin:
-    11px 0 5px;
-
+  margin:11px 0 5px;
   color:#f1c999;
-
   font-size:20px;
-
   font-weight:normal;
-
 }
 
 .ritual-card .telugu{
-
   color:#e1c4aa;
-
 }
 
 .ritual-card p{
-
   font-size:12px;
-
   line-height:1.8;
-
 }
 
 
@@ -1177,14 +779,9 @@ nav .rsvp-nav{
 ========================================================= */
 
 .venue{
-
   position:relative;
-
   overflow:hidden;
-
-  padding:
-    95px 20px;
-
+  padding:95px 20px;
   text-align:center;
 
   background:
@@ -1192,56 +789,168 @@ nav .rsvp-nav{
       #f5e2c2,
       #fff8e9
     );
-
 }
 
 .venue-card{
-
   position:relative;
   z-index:3;
 
   max-width:720px;
+  margin:40px auto 0;
+  padding:52px 25px;
 
-  margin:
-    40px auto 0;
-
-  padding:
-    52px 25px;
-
-  border:
-    1px solid
-    #c8a16b;
+  border:1px solid #c8a16b;
 
   background:
-    rgba(
-      255,
-      255,
-      255,
-      .6
-    );
-
+    rgba(255,255,255,.6);
 }
 
 .venue-card h3{
-
-  margin:
-    8px 0;
-
-  color:
-    var(--maroon);
-
+  margin:8px 0;
+  color:var(--maroon);
   font-size:35px;
-
   font-weight:normal;
-
 }
 
 .venue-card p{
-
   font-size:14px;
-
   line-height:1.8;
+}
 
+
+/* =========================================================
+   GIFT REGISTRY
+========================================================= */
+
+.registry-section{
+  position:relative;
+  overflow:hidden;
+
+  padding:95px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff8e9,
+      #f3e1c3
+    );
+
+  text-align:center;
+}
+
+.registry-section::before{
+  content:"❀";
+  position:absolute;
+  left:-25px;
+  top:-25px;
+
+  font-size:180px;
+  color:#cf7c83;
+  opacity:.1;
+}
+
+.registry-section::after{
+  content:"❀";
+  position:absolute;
+  right:-20px;
+  bottom:-35px;
+
+  font-size:190px;
+  color:#6e8a6b;
+  opacity:.1;
+}
+
+.registry-card{
+  position:relative;
+  z-index:2;
+
+  max-width:1050px;
+  margin:auto;
+  padding:55px 40px;
+
+  border:
+    1px solid
+    rgba(190,151,83,.45);
+
+  background:
+    rgba(255,252,244,.92);
+
+  box-shadow:
+    0 18px 45px
+    rgba(76,53,34,.08);
+}
+
+.registry-intro{
+  max-width:680px;
+  margin:20px auto 40px;
+
+  color:#725d50;
+  font-size:14px;
+  line-height:1.9;
+}
+
+.registry-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.registry-option{
+  min-height:235px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:30px 22px;
+
+  border:1px solid #dfc9a4;
+  border-radius:15px;
+
+  background:#fffdf8;
+
+  color:#55433b;
+  text-decoration:none;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.registry-option:hover{
+  transform:translateY(-5px);
+  border-color:#963d49;
+
+  box-shadow:
+    0 14px 30px
+    rgba(105,63,55,.12);
+}
+
+.registry-icon{
+  margin-bottom:11px;
+  font-size:38px;
+}
+
+.registry-option h3{
+  margin:0 0 8px;
+  color:#963d49;
+  font-size:24px;
+  font-weight:normal;
+}
+
+.registry-option p{
+  margin:0 0 18px;
+  color:#79665a;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.registry-option span{
+  color:#963d49;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:2px;
 }
 
 
@@ -1250,96 +959,68 @@ nav .rsvp-nav{
 ========================================================= */
 
 .rsvp-section{
-
   position:relative;
-
   overflow:hidden;
 
-  padding:
-    105px 20px;
+  padding:105px 20px;
 
   background:
-
     radial-gradient(
       circle at 10% 20%,
       rgba(255,226,187,.14)
       0 15%,
       transparent 16%
     ),
-
     linear-gradient(
       145deg,
       #d47b84,
       #963d49
     );
-
 }
 
 .rsvp-decoration{
-
   position:absolute;
-
   font-size:210px;
-
   opacity:.08;
-
   pointer-events:none;
-
 }
 
 .rsvp-decoration.one{
-
   left:-30px;
   bottom:-50px;
-
 }
 
 .rsvp-decoration.two{
-
   right:-30px;
   top:-40px;
-
 }
 
 .rsvp-card{
-
   position:relative;
-
   z-index:4;
 
   max-width:780px;
-
   margin:auto;
 
-  padding:
-    55px 48px;
+  padding:55px 48px;
 
   border-radius:20px;
 
-  background:
-    var(--paper);
+  background:var(--paper);
 
   box-shadow:
     0 25px 65px
     rgba(77,26,31,.28);
-
 }
 
 .rsvp-heading{
-
   margin-bottom:40px;
-
   text-align:center;
-
 }
 
 .rsvp-heading h2{
-
-  margin:
-    7px 0 10px;
-
-  color:
-    var(--maroon);
+  margin:7px 0 10px;
+  color:var(--maroon);
 
   font-size:
     clamp(
@@ -1349,47 +1030,28 @@ nav .rsvp-nav{
     );
 
   font-weight:normal;
-
 }
 
 .rsvp-heading p{
-
   margin:auto;
-
   max-width:560px;
 
   color:#765d50;
-
   font-size:14px;
-
   line-height:1.8;
-
 }
 
 
-/* form fields */
-
-.form-row{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:17px;
-
-}
+/* =========================================================
+   FORM
+========================================================= */
 
 .form-group{
-
   margin-bottom:25px;
-
 }
 
 .form-label{
-
   display:block;
-
   margin-bottom:9px;
 
   color:#624c43;
@@ -1401,278 +1063,181 @@ nav .rsvp-nav{
     sans-serif;
 
   letter-spacing:.5px;
-
 }
 
 .required{
-
-  color:
-    var(--maroon);
-
+  color:var(--maroon);
 }
 
 .form-input,
-.form-select,
 .form-textarea{
-
   width:100%;
 
-  border:
-    1px solid
-    #ddc9aa;
-
+  border:1px solid #ddc9aa;
   border-radius:10px;
 
   outline:none;
 
   background:#fffdfa;
-
   color:#4b3e38;
 
-  font:
-    15px
-    Arial,
-    sans-serif;
+  font:15px Arial,sans-serif;
 
   transition:
     border .2s ease,
     box-shadow .2s ease;
-
 }
 
-.form-input,
-.form-select{
-
+.form-input{
   height:52px;
-
-  padding:
-    0 16px;
-
+  padding:0 16px;
 }
 
 .form-textarea{
-
   min-height:130px;
-
-  padding:
-    15px 16px;
-
+  padding:15px 16px;
   resize:vertical;
-
 }
 
 .form-input:focus,
-.form-select:focus,
 .form-textarea:focus{
-
-  border-color:
-    var(--maroon);
+  border-color:var(--maroon);
 
   box-shadow:
     0 0 0 3px
     rgba(150,61,73,.08);
-
 }
 
 
 /* attendance */
 
 .choice-grid{
-
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:13px;
-
 }
 
 .choice-card{
-
   cursor:pointer;
-
 }
 
 .choice-card input{
-
   position:absolute;
-
   opacity:0;
-
   pointer-events:none;
-
 }
 
 .choice-box{
-
   min-height:115px;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
 
   padding:18px;
 
-  border:
-    1px solid
-    #ddc9ab;
-
+  border:1px solid #ddc9ab;
   border-radius:13px;
 
   background:#fffdfa;
-
   text-align:center;
 
-  transition:
-    .22s ease;
-
+  transition:.22s ease;
 }
 
 .choice-icon{
-
   margin-bottom:7px;
-
-  color:
-    var(--maroon);
-
+  color:var(--maroon);
   font-size:25px;
-
 }
 
 .choice-box strong{
-
   display:block;
-
   margin-bottom:5px;
 
-  color:
-    var(--maroon);
+  color:var(--maroon);
 
   font:
     600
     13px
     Arial,
     sans-serif;
-
 }
 
 .choice-box small{
-
   color:#897367;
-
-  font:
-    11px
-    Arial,
-    sans-serif;
-
+  font:11px Arial,sans-serif;
 }
 
 .choice-card
 input:checked
 +
 .choice-box{
-
-  border-color:
-    var(--maroon);
-
+  border-color:var(--maroon);
   background:#f9e7e2;
 
   box-shadow:
     0 0 0 2px
     rgba(150,61,73,.08);
 
-  transform:
-    translateY(-2px);
-
+  transform:translateY(-2px);
 }
 
 
 /* events */
 
 .event-choice-grid{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
+  grid-template-columns:repeat(3,1fr);
   gap:11px;
-
 }
 
 .event-choice{
-
   cursor:pointer;
-
 }
 
 .event-choice input{
-
   position:absolute;
-
   opacity:0;
-
   pointer-events:none;
-
 }
 
 .event-choice-box{
-
   min-height:125px;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
 
   gap:6px;
-
   padding:15px;
 
-  border:
-    1px solid
-    #ddc9ab;
-
+  border:1px solid #ddc9ab;
   border-radius:13px;
 
   background:#fffdfa;
-
   text-align:center;
 
   transition:.22s ease;
-
 }
 
 .event-choice-icon{
-
   font-size:28px;
-
 }
 
 .event-choice-box strong{
-
-  color:
-    var(--maroon);
+  color:var(--maroon);
 
   font:
     600
     13px
     Arial,
     sans-serif;
-
 }
 
 .event-choice-box small{
-
   color:#8c786c;
 
   font:
@@ -1681,38 +1246,28 @@ input:checked
     sans-serif;
 
   line-height:1.4;
-
 }
 
 .event-choice
 input:checked
 +
 .event-choice-box{
+  border-color:var(--maroon);
+  background:#f9e7e2;
 
-  border-color:
-    var(--maroon);
-
-  background:
-    #f9e7e2;
-
-  transform:
-    translateY(-2px);
-
+  transform:translateY(-2px);
 }
 
 
 /* submit */
 
 .submit-button{
-
   width:100%;
-
   min-height:56px;
 
   margin-top:9px;
 
   border:0;
-
   border-radius:32px;
 
   cursor:pointer;
@@ -1741,120 +1296,77 @@ input:checked
   transition:
     transform .2s ease,
     opacity .2s ease;
-
 }
 
 .submit-button:hover{
-
-  transform:
-    translateY(-2px);
-
+  transform:translateY(-2px);
 }
 
 .submit-button:disabled{
-
   cursor:not-allowed;
-
   opacity:.65;
-
   transform:none;
-
 }
 
-
-/* RSVP error */
-
 .form-error{
-
   display:none;
 
-  margin:
-    0 0 20px;
+  margin:0 0 20px;
 
-  padding:
-    12px 15px;
+  padding:12px 15px;
 
   border-radius:8px;
 
   background:#f8e2df;
-
   color:#873641;
 
-  font:
-    12px
-    Arial,
-    sans-serif;
-
+  font:12px Arial,sans-serif;
   line-height:1.5;
-
 }
 
 
-/* Thank You */
+/* THANK YOU */
 
 .thank-you{
-
   display:none;
 
-  padding:
-    25px 10px;
+  padding:25px 10px;
 
   text-align:center;
-
 }
 
 .thank-heart{
-
   margin-bottom:10px;
-
-  color:
-    var(--maroon);
-
+  color:var(--maroon);
   font-size:52px;
-
 }
 
 .thank-you h3{
-
-  margin:
-    0 0 12px;
-
-  color:
-    var(--maroon);
-
+  margin:0 0 12px;
+  color:var(--maroon);
   font-size:40px;
-
   font-weight:normal;
-
 }
 
 .thank-you p{
-
   max-width:500px;
-
   margin:auto;
 
   color:#715c51;
 
   font-size:15px;
-
   line-height:1.8;
-
 }
 
 .thank-signature{
-
   margin-top:25px;
-
-  color:
-    var(--maroon);
+  color:var(--maroon);
 
   font-family:
     "Brush Script MT",
     cursive;
 
   font-size:36px;
-
 }
 
 
@@ -1863,10 +1375,10 @@ input:checked
 ========================================================= */
 
 .floating-rsvp{
-
   position:fixed;
 
   right:18px;
+
   bottom:
     calc(
       18px +
@@ -1875,16 +1387,13 @@ input:checked
 
   z-index:700;
 
-  padding:
-    14px 20px;
+  padding:14px 20px;
 
   border-radius:40px;
 
-  background:
-    var(--maroon);
+  background:var(--maroon);
 
   color:white;
-
   text-decoration:none;
 
   font:
@@ -1898,7 +1407,6 @@ input:checked
   box-shadow:
     0 8px 25px
     rgba(75,29,34,.3);
-
 }
 
 
@@ -1907,36 +1415,22 @@ input:checked
 ========================================================= */
 
 footer{
-
-  padding:
-    45px 20px;
-
+  padding:45px 20px;
   text-align:center;
 
-  background:
-    var(--green-dark);
+  background:var(--green-dark);
 
   color:#f0dfbd;
-
 }
 
 .footer-name{
-
   margin-bottom:11px;
-
   font-size:25px;
-
 }
 
 .footer-small{
-
-  font:
-    10px
-    Arial,
-    sans-serif;
-
+  font:10px Arial,sans-serif;
   letter-spacing:3px;
-
 }
 
 
@@ -1945,25 +1439,17 @@ footer{
 ========================================================= */
 
 .reveal{
-
   opacity:0;
-
-  transform:
-    translateY(35px);
+  transform:translateY(35px);
 
   transition:
     opacity .8s ease,
     transform .8s ease;
-
 }
 
 .reveal.visible{
-
   opacity:1;
-
-  transform:
-    translateY(0);
-
+  transform:translateY(0);
 }
 
 
@@ -1974,122 +1460,75 @@ footer{
 @media(max-width:760px){
 
   .envelope-stage{
-
     height:285px;
-
   }
 
   .seal{
-
     width:82px;
     height:82px;
-
     font-size:20px;
-
   }
 
   .tap-text{
-
     bottom:34px;
-
     font-size:9px;
-
   }
-
 
   nav{
-
     justify-content:flex-start;
-
     gap:20px;
-
   }
-
 
   .hero{
-
     min-height:88vh;
-
     padding-top:80px;
-
   }
-
 
   .flower-garland span{
-
     font-size:19px;
-
     line-height:20px;
-
   }
-
 
   .banana{
-
     font-size:78px;
-
   }
-
 
   .events-grid,
-  .ritual-grid{
-
+  .ritual-grid,
+  .registry-grid{
     grid-template-columns:1fr;
-
   }
-
-
-  .form-row{
-
-    grid-template-columns:1fr;
-
-    gap:0;
-
-  }
-
 
   .choice-grid{
-
     grid-template-columns:1fr;
-
   }
-
 
   .event-choice-grid{
-
     grid-template-columns:1fr;
-
   }
-
 
   .rsvp-card{
-
-    padding:
-      40px 20px;
-
+    padding:40px 20px;
   }
 
+  .registry-card{
+    padding:40px 20px;
+  }
 
   .story-section,
   .events-section,
   .ritual-intro,
   .rituals,
   .venue,
+  .registry-section,
   .rsvp-section{
-
     padding-top:72px;
     padding-bottom:72px;
-
   }
 
-
   .floating-rsvp{
-
     right:12px;
-
-    padding:
-      13px 17px;
-
+    padding:13px 17px;
   }
 
 }
@@ -2123,7 +1562,6 @@ footer{
 
       <div class="envelope-flap"></div>
 
-
       <button
         class="seal"
         id="seal"
@@ -2133,11 +1571,8 @@ footer{
         C&M
       </button>
 
-
       <div class="tap-text">
-
         TAP THE SEAL TO OPEN
-
       </div>
 
     </div>
@@ -2171,6 +1606,10 @@ footer{
 
   <a href="#venue">
     VENUE
+  </a>
+
+  <a href="#registry">
+    REGISTRY
   </a>
 
   <a
@@ -2229,23 +1668,17 @@ footer{
 
 
     <div class="hero-small">
-
       A LITTLE GLIMPSE OF OUR FOREVER
-
     </div>
 
 
     <h1>
-
       Chaitanya & Mounisha
-
     </h1>
 
 
     <div class="hero-date">
-
       OCTOBER 23 • 24 • 25
-
     </div>
 
 
@@ -2266,9 +1699,7 @@ footer{
       href="#rsvp"
       class="primary-button"
     >
-
       ♥ RSVP NOW
-
     </a>
 
 
@@ -2298,16 +1729,12 @@ footer{
   <div class="story-card">
 
     <div class="eyebrow">
-
       TWO JOURNEYS • ONE FOREVER
-
     </div>
 
 
     <h2 class="section-title">
-
       Our Wedding Story
-
     </h2>
 
 
@@ -2348,20 +1775,13 @@ footer{
 
   <div class="events-header">
 
-
     <div class="eyebrow">
-
       JOIN OUR CELEBRATION
-
     </div>
 
-
     <h2 class="section-title">
-
       Wedding Events
-
     </h2>
-
 
   </div>
 
@@ -2369,46 +1789,32 @@ footer{
   <div class="events-grid">
 
 
-    <!-- SANGEETH -->
-
     <article class="event-card">
 
       <div class="event-top">
-
         💃🏽
-
       </div>
-
 
       <div class="event-content">
 
         <div class="event-date">
-
           OCTOBER 23
-
         </div>
-
 
         <h3>
-
           Sangeeth
-
         </h3>
 
-
         <div class="telugu">
-
           సంగీత్
-
         </div>
-
 
         <p>
 
           Friday evening,
           8:00 PM – 12:00 AM.
 
-          <br>
+          <br><br>
 
           An evening filled with music,
           dancing, laughter and celebration.
@@ -2420,45 +1826,31 @@ footer{
     </article>
 
 
-    <!-- HALDI -->
-
     <article class="event-card">
 
       <div class="event-top">
-
         🌼
-
       </div>
-
 
       <div class="event-content">
 
         <div class="event-date">
-
           OCTOBER 24
-
         </div>
-
 
         <h3>
-
           Haldi
-
         </h3>
 
-
         <div class="telugu">
-
           పసుపు వేడుక
-
         </div>
-
 
         <p>
 
           Saturday afternoon.
 
-          <br>
+          <br><br>
 
           A colorful celebration of
           turmeric, blessings,
@@ -2471,46 +1863,32 @@ footer{
     </article>
 
 
-    <!-- WEDDING -->
-
     <article class="event-card">
 
       <div class="event-top">
-
         🪷
-
       </div>
-
 
       <div class="event-content">
 
         <div class="event-date">
-
           OCTOBER 25
-
         </div>
-
 
         <h3>
-
           Wedding
-
         </h3>
 
-
         <div class="telugu">
-
           పెళ్లి
-
         </div>
-
 
         <p>
 
           Sunday morning,
           9:45 AM.
 
-          <br>
+          <br><br>
 
           Two hearts and two families
           come together for
@@ -2530,7 +1908,6 @@ footer{
 
 <!-- =========================================================
      RITUAL IMAGE PLACEHOLDER
-     WE WILL ADD YOUR FULL IMAGE LATER
 ========================================================= -->
 
 <section
@@ -2538,18 +1915,12 @@ footer{
 >
 
   <div class="eyebrow">
-
     OUR SACRED TRADITIONS
-
   </div>
 
-
   <h2 class="section-title">
-
     The Telugu Wedding Ceremony
-
   </h2>
-
 
   <p
     style="
@@ -2595,16 +1966,11 @@ footer{
   <div class="ritual-header">
 
     <div class="eyebrow">
-
       TIMELESS TRADITIONS
-
     </div>
 
-
     <h2 class="section-title">
-
       Sacred Rituals & Their Meaning
-
     </h2>
 
   </div>
@@ -2869,21 +2235,16 @@ footer{
 
 
   <div class="eyebrow">
-
     OUR CELEBRATION
-
   </div>
 
 
   <h2 class="section-title">
-
     Jordan Ranch
-
   </h2>
 
 
   <div class="venue-card">
-
 
     <div
       style="
@@ -2891,16 +2252,12 @@ footer{
         margin-bottom:8px;
       "
     >
-
       🌿
-
     </div>
 
 
     <h3>
-
       Jordan Ranch
-
     </h3>
 
 
@@ -2908,7 +2265,6 @@ footer{
 
       3136 Jordan Valley Rd
       <br>
-
       Dallas, TX 75253
 
     </p>
@@ -2916,18 +2272,135 @@ footer{
 
     <a
       class="primary-button"
-      style="
-        margin-top:15px;
-      "
+      style="margin-top:15px;"
       href="https://maps.google.com/?q=3136+Jordan+Valley+Rd+Dallas+TX+75253"
       target="_blank"
       rel="noopener"
     >
-
       VIEW MAP
-
     </a>
 
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     GIFT REGISTRY
+========================================================= -->
+
+<section
+  class="registry-section reveal"
+  id="registry"
+>
+
+  <div class="registry-card">
+
+    <div class="eyebrow">
+      WITH LOVE & GRATITUDE
+    </div>
+
+    <h2 class="section-title">
+      Gift Registry
+    </h2>
+
+    <p class="registry-intro">
+
+      Your presence at our celebration
+      is truly the greatest gift.
+
+      <br><br>
+
+      For those who have asked,
+      we have created a few registries
+      to help us begin this beautiful
+      new chapter together.
+
+    </p>
+
+
+    <div class="registry-grid">
+
+
+      <a
+        class="registry-option"
+        href="YOUR_AMAZON_REGISTRY_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="registry-icon">
+          🎁
+        </div>
+
+        <h3>
+          Amazon
+        </h3>
+
+        <p>
+          Browse our Amazon wedding registry.
+        </p>
+
+        <span>
+          VIEW REGISTRY →
+        </span>
+
+      </a>
+
+
+      <a
+        class="registry-option"
+        href="YOUR_TARGET_REGISTRY_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="registry-icon">
+          ♡
+        </div>
+
+        <h3>
+          Target
+        </h3>
+
+        <p>
+          View our Target wedding registry.
+        </p>
+
+        <span>
+          VIEW REGISTRY →
+        </span>
+
+      </a>
+
+
+      <a
+        class="registry-option"
+        href="YOUR_OTHER_REGISTRY_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="registry-icon">
+          ✨
+        </div>
+
+        <h3>
+          Other Registry
+        </h3>
+
+        <p>
+          Explore our additional registry.
+        </p>
+
+        <span>
+          VIEW REGISTRY →
+        </span>
+
+      </a>
+
+
+    </div>
 
   </div>
 
@@ -2944,41 +2417,29 @@ footer{
 >
 
   <div class="rsvp-decoration one">
-
     ❀
-
   </div>
 
   <div class="rsvp-decoration two">
-
     ❀
-
   </div>
 
 
   <div class="rsvp-card">
 
 
-    <div
-      id="rsvpFormContent"
-    >
+    <div id="rsvpFormContent">
 
 
       <div class="rsvp-heading">
 
         <div class="eyebrow">
-
           WE WOULD LOVE TO CELEBRATE WITH YOU
-
         </div>
 
-
         <h2>
-
           RSVP
-
         </h2>
-
 
         <p>
 
@@ -2998,33 +2459,18 @@ footer{
         class="form-error"
         id="formError"
       >
-
         Please complete all required fields.
-
       </div>
 
 
-      <!--
-        NETLIFY FORM
-
-        Responses will appear in:
-        Netlify → Site → Forms → Wedding RSVP
-      -->
-
       <form
         id="rsvpForm"
-
         name="Wedding RSVP"
-
         method="POST"
-
         data-netlify="true"
-
         netlify-honeypot="bot-field"
       >
 
-
-        <!-- required by Netlify -->
 
         <input
           type="hidden"
@@ -3033,21 +2479,13 @@ footer{
         >
 
 
-        <!-- spam protection -->
-
-        <p
-          style="
-            display:none;
-          "
-        >
+        <p style="display:none;">
 
           <label>
 
             Don't fill this out:
 
-            <input
-              name="bot-field"
-            >
+            <input name="bot-field">
 
           </label>
 
@@ -3074,15 +2512,10 @@ footer{
 
           <input
             class="form-input"
-
             type="text"
-
             id="guestName"
-
             name="Your name"
-
             placeholder="Enter your name"
-
             required
           >
 
@@ -3092,7 +2525,6 @@ footer{
         <!-- ATTENDANCE -->
 
         <div class="form-group">
-
 
           <div class="form-label">
 
@@ -3110,17 +2542,12 @@ footer{
 
             <label class="choice-card">
 
-
               <input
                 type="radio"
-
                 name="Will you be joining us"
-
                 value="Joyfully accepting"
-
                 required
               >
-
 
               <span class="choice-box">
 
@@ -3129,34 +2556,25 @@ footer{
                 </span>
 
                 <strong>
-
                   Joyfully Accepting
-
                 </strong>
 
                 <small>
-
                   Can't wait to celebrate!
-
                 </small>
 
               </span>
-
 
             </label>
 
 
             <label class="choice-card">
 
-
               <input
                 type="radio"
-
                 name="Will you be joining us"
-
                 value="Regretfully declining"
               >
-
 
               <span class="choice-box">
 
@@ -3165,19 +2583,14 @@ footer{
                 </span>
 
                 <strong>
-
                   Regretfully Declining
-
                 </strong>
 
                 <small>
-
                   Sending our love
-
                 </small>
 
               </span>
-
 
             </label>
 
@@ -3210,19 +2623,12 @@ footer{
 
           <input
             class="form-input"
-
             type="number"
-
             id="guestCount"
-
             name="Number of guests"
-
             min="1"
-
             max="10"
-
             placeholder="Example: 2"
-
             required
           >
 
@@ -3235,7 +2641,6 @@ footer{
           class="form-group"
           id="eventsGroup"
         >
-
 
           <div class="form-label">
 
@@ -3253,126 +2658,81 @@ footer{
 
             <label class="event-choice">
 
-
               <input
-
                 type="checkbox"
-
                 name="Events attending"
-
-                value="Sangeeth - Friday evening 8 to 12"
-
+                value="Sangeeth - October 23"
               >
-
 
               <span class="event-choice-box">
 
                 <span class="event-choice-icon">
-
                   💃🏽
-
                 </span>
 
                 <strong>
-
                   Sangeeth
-
                 </strong>
 
                 <small>
-
                   October 23
-                  <br>
-                  8 PM – 12 AM
-
                 </small>
 
               </span>
-
 
             </label>
 
 
             <label class="event-choice">
 
-
               <input
-
                 type="checkbox"
-
                 name="Events attending"
-
-                value="Haldi - Saturday afternoon"
-
+                value="Haldi - October 24"
               >
-
 
               <span class="event-choice-box">
 
                 <span class="event-choice-icon">
-
                   🌼
-
                 </span>
 
                 <strong>
-
                   Haldi
-
                 </strong>
 
                 <small>
-
                   October 24
-                  <br>
-                  Afternoon
-
                 </small>
 
               </span>
-
 
             </label>
 
 
             <label class="event-choice">
 
-
               <input
-
                 type="checkbox"
-
                 name="Events attending"
-
-                value="Wedding - Sunday morning 9:45 AM"
-
+                value="Wedding - October 25"
               >
-
 
               <span class="event-choice-box">
 
                 <span class="event-choice-icon">
-
                   🪷
-
                 </span>
 
                 <strong>
-
                   Wedding
-
                 </strong>
 
                 <small>
-
                   October 25
-                  <br>
-                  9:45 AM
-
                 </small>
 
               </span>
-
 
             </label>
 
@@ -3386,45 +2746,30 @@ footer{
 
         <div class="form-group">
 
-
           <label
             class="form-label"
             for="message"
           >
-
             Message for the Couple
-
           </label>
 
 
           <textarea
-
             class="form-textarea"
-
             id="message"
-
             name="Message for the couple"
-
             placeholder="Leave us a little note..."
-
           ></textarea>
-
 
         </div>
 
 
-        <!-- SUBMIT -->
-
         <button
           class="submit-button"
-
           type="submit"
-
           id="submitButton"
         >
-
           SEND MY RSVP
-
         </button>
 
 
@@ -3434,7 +2779,7 @@ footer{
     </div>
 
 
-    <!-- THANK YOU SCREEN -->
+    <!-- THANK YOU -->
 
     <div
       class="thank-you"
@@ -3443,16 +2788,12 @@ footer{
 
 
       <div class="thank-heart">
-
         ♡
-
       </div>
 
 
       <h3>
-
         Thank You!
-
       </h3>
 
 
@@ -3469,9 +2810,7 @@ footer{
 
 
       <div class="thank-signature">
-
         Chaitanya & Mounisha
-
       </div>
 
 
@@ -3491,9 +2830,7 @@ footer{
 
 
   <div class="footer-name">
-
     Chaitanya & Mounisha
-
   </div>
 
 
@@ -3519,9 +2856,7 @@ footer{
   class="floating-rsvp"
   href="#rsvp"
 >
-
   ♥ RSVP
-
 </a>
 
 
@@ -3532,19 +2867,13 @@ footer{
 ========================================================= */
 
 const seal =
-document.getElementById(
-  "seal"
-);
+document.getElementById("seal");
 
 const envelopeStage =
-document.getElementById(
-  "envelopeStage"
-);
+document.getElementById("envelopeStage");
 
 const openingScreen =
-document.getElementById(
-  "openingScreen"
-);
+document.getElementById("openingScreen");
 
 let invitationOpened =
 false;
@@ -3560,22 +2889,14 @@ seal.addEventListener(
 
     invitationOpened = true;
 
-
-    envelopeStage.classList.add(
-      "open"
-    );
-
+    envelopeStage.classList.add("open");
 
     setTimeout(
       function(){
 
-        document.body.classList.remove(
-          "locked"
-        );
+        document.body.classList.remove("locked");
 
-        openingScreen.classList.add(
-          "hide"
-        );
+        openingScreen.classList.add("hide");
 
       },
       1150
@@ -3590,9 +2911,7 @@ seal.addEventListener(
 ========================================================= */
 
 const revealItems =
-document.querySelectorAll(
-  ".reveal"
-);
+document.querySelectorAll(".reveal");
 
 
 const revealObserver =
@@ -3603,9 +2922,7 @@ new IntersectionObserver(
     entries.forEach(
       function(entry){
 
-        if(
-          entry.isIntersecting
-        ){
+        if(entry.isIntersecting){
 
           entry.target.classList.add(
             "visible"
@@ -3628,22 +2945,18 @@ new IntersectionObserver(
 revealItems.forEach(
   function(item){
 
-    revealObserver.observe(
-      item
-    );
+    revealObserver.observe(item);
 
   }
 );
 
 
 /* =========================================================
-   SMOOTH ANCHORS
+   SMOOTH LINKS
 ========================================================= */
 
 document
-.querySelectorAll(
-  'a[href^="#"]'
-)
+.querySelectorAll('a[href^="#"]')
 .forEach(
   function(link){
 
@@ -3652,35 +2965,22 @@ document
       function(event){
 
         const href =
-        this.getAttribute(
-          "href"
-        );
+        this.getAttribute("href");
 
-        if(
-          !href ||
-          href === "#"
-        ){
+        if(!href || href === "#"){
           return;
         }
 
-
         const target =
-        document.querySelector(
-          href
-        );
-
+        document.querySelector(href);
 
         if(target){
 
           event.preventDefault();
 
-
           target.scrollIntoView({
-
             behavior:"smooth",
-
             block:"start"
-
           });
 
         }
@@ -3693,44 +2993,27 @@ document
 
 
 /* =========================================================
-   RSVP LOGIC
+   RSVP
 ========================================================= */
 
 const rsvpForm =
-document.getElementById(
-  "rsvpForm"
-);
+document.getElementById("rsvpForm");
 
 const submitButton =
-document.getElementById(
-  "submitButton"
-);
+document.getElementById("submitButton");
 
 const formError =
-document.getElementById(
-  "formError"
-);
+document.getElementById("formError");
 
 const thankYou =
-document.getElementById(
-  "thankYou"
-);
+document.getElementById("thankYou");
 
 const rsvpFormContent =
-document.getElementById(
-  "rsvpFormContent"
-);
+document.getElementById("rsvpFormContent");
 
 const thankYouMessage =
-document.getElementById(
-  "thankYouMessage"
-);
+document.getElementById("thankYouMessage");
 
-
-/*
-  If guest declines,
-  event selection is not required.
-*/
 
 const attendanceInputs =
 document.querySelectorAll(
@@ -3751,12 +3034,8 @@ attendanceInputs.forEach(
         )?.value ===
         "Joyfully accepting";
 
-
         const guestCount =
-        document.getElementById(
-          "guestCount"
-        );
-
+        document.getElementById("guestCount");
 
         if(accepted){
 
@@ -3779,11 +3058,7 @@ attendanceInputs.forEach(
 );
 
 
-/* Netlify form encode */
-
-function encodeFormData(
-  formData
-){
+function encodeFormData(formData){
 
   return new URLSearchParams(
     formData
@@ -3792,14 +3067,11 @@ function encodeFormData(
 }
 
 
-/* submit */
-
 rsvpForm.addEventListener(
   "submit",
   async function(event){
 
     event.preventDefault();
-
 
     formError.style.display =
     "none";
@@ -3824,12 +3096,6 @@ rsvpForm.addEventListener(
     }
 
 
-    /*
-      If attending,
-      at least one event
-      must be selected.
-    */
-
     if(
       attendance.value ===
       "Joyfully accepting"
@@ -3850,9 +3116,7 @@ rsvpForm.addEventListener(
         "block";
 
         document
-        .getElementById(
-          "eventsGroup"
-        )
+        .getElementById("eventsGroup")
         .scrollIntoView({
           behavior:"smooth",
           block:"center"
@@ -3865,9 +3129,7 @@ rsvpForm.addEventListener(
     }
 
 
-    if(
-      !rsvpForm.checkValidity()
-    ){
+    if(!rsvpForm.checkValidity()){
 
       rsvpForm.reportValidity();
 
@@ -3887,9 +3149,7 @@ rsvpForm.addEventListener(
 
 
       const data =
-      new FormData(
-        rsvpForm
-      );
+      new FormData(rsvpForm);
 
 
       await fetch(
@@ -3904,23 +3164,15 @@ rsvpForm.addEventListener(
           },
 
           body:
-            encodeFormData(
-              data
-            )
+            encodeFormData(data)
 
         }
       );
 
 
-      /*
-        Personalized thank-you
-      */
-
       const guestName =
       document
-      .getElementById(
-        "guestName"
-      )
+      .getElementById("guestName")
       .value
       .trim();
 
@@ -3974,9 +3226,7 @@ rsvpForm.addEventListener(
     catch(error){
 
 
-      console.error(
-        error
-      );
+      console.error(error);
 
 
       formError.textContent =
